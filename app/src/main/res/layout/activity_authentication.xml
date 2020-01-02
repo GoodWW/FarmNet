@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.AuthenticationActivity">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="@dimen/back_size"
+        android:layout_height="@dimen/back_size"
+        android:src="@drawable/ic_chevron_left_black_24dp"
+        android:padding="25px"
+        tools:ignore="PxUsage"
+        />
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/back"
+        android:layout_marginStart="@dimen/mar_size"
+        android:layout_marginTop="60px"
+        android:text="@string/authentication"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_large_size"
+        android:textStyle="bold"
+        tools:ignore="PxUsage" />
+
+    <TextView
+        android:id="@+id/etPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="130px"
+        android:layout_below="@+id/tvWelcome"
+        android:layout_marginStart="@dimen/mar_size"
+        android:layout_marginTop="200px"
+        android:gravity="center_vertical"
+        android:text="@string/hint_one"
+        android:textSize="@dimen/text_normal_size"
+        android:textColor="@color/black"
+        tools:ignore="PxUsage" />
+
+    <EditText
+        android:id="@+id/etCode"
+        android:layout_width="match_parent"
+        android:layout_height="130px"
+        android:layout_below="@+id/etPhone"
+        android:layout_marginStart="@dimen/mar_size"
+        android:layout_marginEnd="@dimen/mar_size"
+        android:inputType="number"
+        android:maxLength="4"
+        android:selectAllOnFocus="true"
+        android:textColor="@color/white"
+        android:background="@null"
+        android:textCursorDrawable="@drawable/cursor_size_black"
+        android:textColorHint="@color/form_bg"
+        tools:ignore="PxUsage" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/etCode"
+        android:layout_marginStart="@dimen/mar_size"
+        android:layout_marginEnd="@dimen/mar_size"
+        android:background="@color/line_bg" />
+
+    <TextView
+        android:id="@+id/tvCenter"
+        android:layout_width="1px"
+        android:layout_height="80px"
+        android:layout_below="@+id/etPhone"
+        android:layout_toStartOf="@+id/tvTime"
+        android:layout_marginTop="25px"
+        android:background="@color/gray_line"
+        tools:ignore="PxUsage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="130px"
+        android:layout_below="@+id/etPhone"
+        android:layout_marginEnd="80px"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:layout_marginStart="80px"
+        android:id="@+id/tvTime"
+        android:text="@string/str_get_code"
+        android:textColor="#bfc1c1"
+        tools:ignore="PxUsage" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="110px"
+        android:layout_below="@id/etCode"
+        android:layout_marginStart="@dimen/mar_size"
+        android:layout_marginTop="@dimen/margin_top_size_btn"
+      android:layout_marginEnd="@dimen/mar_size"
+        android:background="@drawable/login_click_effect_in"
+        android:text="@string/str_next"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_normal_size"
+        tools:ignore="PxUsage" />
+
+</RelativeLayout>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_top_and_button"
+        android:layout_marginBottom="@dimen/padding_top_and_button"
+        android:background="?selectableItemBackground"
+        android:paddingStart="@dimen/mar_size"
+        tools:ignore="PxUsage,RtlSymmetry">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="最大展开位置"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="75px"
+            android:gravity="center_vertical"
+            android:text="100 %"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <ImageView
+            android:layout_width="15px"
+            android:layout_height="25px"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/mar_size"
+            android:background="@drawable/list_arrow_right" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_top_and_button"
+        android:layout_marginBottom="@dimen/padding_top_and_button"
+        android:background="?selectableItemBackground"
+        android:paddingStart="@dimen/mar_size"
+        tools:ignore="PxUsage,RtlSymmetry">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="风速大于此值时收拢外遮阳"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="75px"
+            android:gravity="center_vertical"
+            android:text="5 M/S"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <ImageView
+            android:layout_width="15px"
+            android:layout_height="25px"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/mar_size"
+            android:background="@drawable/list_arrow_right" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_top_and_button"
+        android:layout_marginBottom="@dimen/padding_top_and_button"
+        android:background="?selectableItemBackground"
+        android:paddingStart="@dimen/mar_size"
+        tools:ignore="PxUsage,RtlSymmetry">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="是否使用室外光照设置"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="75px"
+            android:gravity="center_vertical"
+            android:text="是"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <ImageView
+            android:layout_width="15px"
+            android:layout_height="25px"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/mar_size"
+            android:background="@drawable/list_arrow_right" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_top_and_button"
+        android:layout_marginBottom="@dimen/padding_top_and_button"
+        android:background="?selectableItemBackground"
+        android:paddingStart="@dimen/mar_size"
+        tools:ignore="PxUsage,RtlSymmetry">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="降雨是否收拢外遮阳"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="75px"
+            android:gravity="center_vertical"
+            android:text="是"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <ImageView
+            android:layout_width="15px"
+            android:layout_height="25px"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/mar_size"
+            android:background="@drawable/list_arrow_right" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_top_and_button"
+        android:layout_marginBottom="@dimen/padding_top_and_button"
+        android:background="?selectableItemBackground"
+        android:paddingStart="@dimen/mar_size"
+        tools:ignore="PxUsage,RtlSymmetry">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="遮光时外遮阳是否先于内遮阳先动"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="75px"
+            android:gravity="center_vertical"
+            android:text="是"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <ImageView
+            android:layout_width="15px"
+            android:layout_height="25px"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/mar_size"
+            android:background="@drawable/list_arrow_right" />
+    </RelativeLayout>
+</LinearLayout>

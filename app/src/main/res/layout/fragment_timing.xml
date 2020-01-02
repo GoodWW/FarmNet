@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_top_and_button"
+        android:layout_marginBottom="@dimen/padding_top_and_button"
+        android:background="?selectableItemBackground"
+        android:paddingStart="@dimen/mar_size"
+        tools:ignore="PxUsage,RtlSymmetry">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="时段选择"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <TextView
+            android:id="@+id/tvNameValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="75px"
+            android:gravity="center_vertical"
+            android:text="时段一"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <ImageView
+            android:layout_width="15px"
+            android:layout_height="25px"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/mar_size"
+            android:background="@drawable/list_arrow_right" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginStart="@dimen/mar_size"
+        android:layout_marginEnd="@dimen/mar_size"
+        android:background="@color/gray_line"
+        tools:ignore="PxUsage" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_top_and_button"
+        android:layout_marginBottom="@dimen/padding_top_and_button"
+        android:background="?selectableItemBackground"
+        android:paddingStart="@dimen/mar_size"
+        tools:ignore="PxUsage,RtlSymmetry">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="开始时间"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <TextView
+            android:id="@+id/tvStartTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="75px"
+            android:gravity="center_vertical"
+            android:text="16:40"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <ImageView
+            android:layout_width="15px"
+            android:layout_height="25px"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/mar_size"
+            android:background="@drawable/list_arrow_right" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginStart="@dimen/mar_size"
+        android:layout_marginEnd="@dimen/mar_size"
+        android:background="@color/gray_line"
+        tools:ignore="PxUsage" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_top_and_button"
+        android:layout_marginBottom="@dimen/padding_top_and_button"
+        android:background="?selectableItemBackground"
+        android:paddingStart="@dimen/mar_size"
+        tools:ignore="PxUsage,RtlSymmetry">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="运行时长"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <TextView
+            android:id="@+id/tvRunTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="75px"
+            android:gravity="center_vertical"
+            android:text="300 S"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <ImageView
+            android:layout_width="15px"
+            android:layout_height="25px"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/mar_size"
+            android:background="@drawable/list_arrow_right" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginStart="@dimen/mar_size"
+        android:layout_marginEnd="@dimen/mar_size"
+        android:background="@color/gray_line"
+        tools:ignore="PxUsage" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_top_and_button"
+        android:layout_marginBottom="@dimen/padding_top_and_button"
+        android:background="?selectableItemBackground"
+        android:paddingStart="@dimen/mar_size"
+        tools:ignore="PxUsage,RtlSymmetry">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="执行动作"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <TextView
+            android:id="@+id/tvAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="75px"
+            android:gravity="center_vertical"
+            android:text="打开"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <ImageView
+            android:layout_width="15px"
+            android:layout_height="25px"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/mar_size"
+            android:background="@drawable/list_arrow_right" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginStart="@dimen/mar_size"
+        android:layout_marginEnd="@dimen/mar_size"
+        android:background="@color/gray_line"
+        tools:ignore="PxUsage" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_top_and_button"
+        android:layout_marginBottom="@dimen/padding_top_and_button"
+        android:background="?selectableItemBackground"
+        android:paddingStart="@dimen/mar_size"
+        tools:ignore="PxUsage,RtlSymmetry">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="是否启用"
+            android:textColor="@color/txt_my"
+            android:textSize="@dimen/text_normal_size" />
+
+        <Switch
+            android:id="@+id/tvUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="75px"
+            android:switchTextAppearance="@style/SwitchTheme"
+            android:track="@drawable/switch_selector"
+            android:thumb="@drawable/ic_thumb"
+            android:gravity="center_vertical"
+            />
+
+        <ImageView
+            android:layout_width="15px"
+            android:layout_height="25px"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/mar_size"
+            android:background="@drawable/list_arrow_right" />
+    </RelativeLayout>
+
+
+</LinearLayout>

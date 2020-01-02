@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_home"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rlOne"
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:background="@color/white"
+        android:paddingStart="@dimen/mar_size"
+        android:paddingTop="@dimen/mar_size"
+        android:layout_marginBottom="@dimen/mar_size"
+        tools:ignore="RtlSymmetry">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="崇明园区"
+            android:textSize="@dimen/text_big_size"
+            android:padding="10px"
+            android:textStyle="bold"
+            tools:ignore="PxUsage" />
+
+        <ImageView
+            android:id="@+id/imgName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/tvName"
+            android:paddingTop="40px"
+            android:paddingBottom="40px"
+            android:paddingEnd="40px"
+            android:paddingStart="32px"
+            android:src="@drawable/ic_down"
+            tools:ignore="PxUsage" />
+
+        <ImageView
+            android:id="@+id/imgAdd"
+            android:layout_width="79px"
+            android:layout_height="79px"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="38px"
+            android:background="@drawable/ic_add"
+            tools:ignore="PxUsage,RtlHardcoded" />
+    </RelativeLayout>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_below="@+id/rlOne"
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80px"
+        android:layout_marginStart="20px"
+        android:layout_marginEnd="@dimen/mar_size"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.yanzhenjie.recyclerview.SwipeRecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</RelativeLayout>
+

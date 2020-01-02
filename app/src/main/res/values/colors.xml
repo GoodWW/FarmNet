@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="font_dark">#595757</color>
+    <color name="form_bg">#bfc1c1</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="fuck">#46a8ba</color>
+    <color name="text_back_blue">#0397a4</color>
+    <color name="gray">#fafafa</color>
+    <color name="gray_line">#e5e5e5</color>
+
+    <color name="bg_gray">#494949</color>
+    <color name="bg_green">#00ff00</color>
+    <color name="bg_home">#f3f2ee</color>
+    <color name="bg_line">#bbbbbb</color>
+    <color name="bg_txt_color">#c0c0c0</color>
+    <color name="txt_my">#333333</color>
+    <color name="white_pressed">#CFCFCF</color>
+    <color name="green_normal">#37C000</color>
+    <color name="green_pressed">#30A070</color>
+    <color name="red_normal">#FF0000</color>
+    <color name="red_pressed">#FF6666</color>
+    <color name="purple_normal">#9932CC</color>
+    <color name="purple_pressed">#9F79EE</color>
+    <color name="line_bg">#595757</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="regis_account_exist">#222222</color>
+    <color name="new_redbg">#FFFF5B62</color>
+    <color name="transparentsmll_bg">#33000000</color>
+    <color name="line_channle">#E5E5E5</color>
+    <color name="control_back_color">#6073f6</color>
+
+
+
+    <color name="qmui_config_color_gray_5">#858C96</color>
+    <color name="app_color_description">@color/qmui_config_color_gray_5</color>
+
+</resources>

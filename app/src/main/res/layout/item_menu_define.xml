@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical"
+    android:paddingStart="20px"
+    android:paddingEnd="20px"
+    android:background="?selectableItemBackground">
+
+    <TextView
+        android:id="@+id/tvItemPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="100px"
+        android:textSize="@dimen/text_small_size"
+        android:gravity="center"
+        android:text="崇明园区"
+        android:layout_marginEnd="90px"
+        android:textColor="@color/white" />
+
+    <Button
+
+        android:id="@+id/btnItemJump"
+        android:layout_width="150px"
+        android:layout_height="60px"
+        android:layout_toEndOf="@+id/tvItemPopup"
+        android:textSize="@dimen/text_s_small_size"
+        android:background="@drawable/item_home_btn_back"
+        android:text="@string/str_please"
+        android:layout_centerVertical="true"
+        android:textAllCaps="false" />
+</RelativeLayout>

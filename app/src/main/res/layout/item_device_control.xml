@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:minHeight="150px"
+    android:layout_centerVertical="true"
+    android:layout_height="wrap_content"
+    android:paddingTop="20px"
+    android:paddingBottom="20px"
+    tools:ignore="PxUsage">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="130px"
+        android:layout_height="130px"
+        android:src="@drawable/img_back"
+        android:layout_centerVertical="true"
+        />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="60px"
+        android:text="外遮阳"
+        android:layout_toEndOf="@+id/img"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/text_small_size"
+        android:layout_marginStart="@dimen/mar_size"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40px"
+        android:textSize="@dimen/text_s_small_size"
+        android:text="已展开30%"
+        android:layout_toEndOf="@+id/img"
+        android:layout_marginStart="@dimen/mar_size"
+        android:layout_below="@+id/tvName"
+        android:gravity="center_vertical"
+        android:layout_marginTop="50px"
+        />
+
+    <TextView
+        android:id="@+id/tvLine"
+        android:layout_width="1px"
+        android:layout_height="60px"
+        android:layout_toEndOf="@+id/tvName"
+        android:layout_marginStart="@dimen/mar_size"
+        android:background="@color/font_dark"
+        />
+
+    <TextView
+        android:id="@+id/tvControl"
+        android:layout_width="wrap_content"
+        android:layout_height="60px"
+        android:text="定时"
+        android:layout_toEndOf="@+id/tvLine"
+        android:layout_marginStart="@dimen/mar_size"
+        android:textSize="@dimen/text_small_size"
+        android:gravity="center_vertical"
+        />
+
+    <TextView
+        android:id="@+id/tvClose"
+        android:layout_width="120px"
+        android:layout_height="80px"
+        android:textSize="@dimen/text_small_size"
+        android:text="收拢"
+        android:gravity="center"
+        android:layout_marginTop="60px"
+        android:layout_alignParentEnd="true"
+        />
+
+    <ImageView
+        android:id="@+id/imgSwitch"
+        android:layout_width="149px"
+        android:layout_height="45px"
+        android:layout_marginTop="80px"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_switch_stop"
+        android:layout_marginEnd="120px"
+        />
+    <TextView
+        android:id="@+id/tvOpen"
+        android:layout_width="120px"
+        android:layout_height="80px"
+        android:textSize="@dimen/text_small_size"
+        android:text="打开"
+        android:gravity="center"
+        android:layout_marginTop="60px"
+        android:layout_marginEnd="269px"
+        android:layout_alignParentEnd="true"
+        />
+    <TextView
+        android:id="@+id/tvStop"
+        android:layout_width="120px"
+        android:layout_height="80px"
+        android:textSize="@dimen/text_small_size"
+        android:text="停止"
+        android:gravity="center"
+        android:layout_marginEnd="135px"
+        android:layout_alignParentEnd="true"
+        />
+</RelativeLayout>

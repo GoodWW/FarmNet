@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/control_back_color"
+    android:orientation="vertical"
+    tools:context=".ui.activity.ControlActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlTop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/back_size"
+        android:orientation="horizontal"
+        tools:ignore="PxUsage">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_centerVertical="true"
+            android:padding="25px"
+            android:src="@drawable/ic_chevron_left_white_24dp"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tvControlTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="外遮阳#1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_normal_size"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlCenter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="150px"
+        tools:ignore="PxUsage">
+
+        <TextView
+            android:id="@+id/tvControlType"
+            android:layout_width="wrap_content"
+            android:layout_height="80px"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="已展开"
+            android:textColor="@color/white"
+            android:textSize="60px" />
+
+        <TextView
+            android:id="@+id/tvType"
+            android:layout_width="wrap_content"
+            android:layout_height="100px"
+            android:layout_marginTop="120px"
+            android:layout_toEndOf="@+id/tvNum"
+            android:text="%"
+            android:textColor="@color/white"
+            android:textSize="80px" />
+
+        <TextView
+            android:id="@+id/tvNum"
+            android:layout_width="wrap_content"
+            android:layout_height="400px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120px"
+            android:text="58"
+            android:textColor="@color/white"
+            android:textSize="300px" />
+
+        <TextView
+            android:id="@+id/tvState"
+            android:layout_width="wrap_content"
+            android:layout_height="80px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="600px"
+            android:text="定时控制    三个时段"
+            android:textColor="@color/white"
+            android:textSize="60px" />
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/toolbar_tab"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_gravity="bottom"
+        android:background="@color/control_back_color"
+        android:fillViewport="false"
+        app:layout_scrollFlags="scroll"
+        app:tabIndicatorColor="@color/control_back_color"
+        app:tabIndicatorHeight="2.0dp"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+        app:tabTextColor="@color/bg_txt_color">
+
+        <!--指示器颜色-->
+        <!-- app:tabIndicatorColor="#0835f8"-->
+
+        <!--tab条目中字体颜色-->
+        <!--app:tabSelectedTextColor="#0835f8"-->
+
+
+        <!--布局选择器-->
+        <!--android:icon="@drawable/tab_selector"-->
+        <android.support.design.widget.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="定时" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="手动" />
+
+
+        <android.support.design.widget.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="自动" />
+
+
+    </android.support.design.widget.TabLayout>
+
+
+    <com.cdzp.farmnet.utils.MyViewPager
+        android:id="@+id/main_vp_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:fitsSystemWindows="true"
+        android:minHeight="300px"
+        tools:ignore="PxUsage" />
+
+</LinearLayout>

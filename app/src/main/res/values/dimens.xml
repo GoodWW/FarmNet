@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="mar_size" tools:ignore="PxUsage">40px</dimen>
+    <dimen name="dp_70">70dp</dimen>
+    <dimen name="text_normal_size" tools:ignore="PxUsage">45px</dimen>
+    <dimen name="text_small_size" tools:ignore="PxUsage">40px</dimen>
+    <dimen name="text_s_small_size" tools:ignore="PxUsage">30px</dimen>
+    <dimen name="text_big_size" tools:ignore="PxUsage">50px</dimen>
+    <dimen name="text_large_size" tools:ignore="PxUsage">80px</dimen>
+    <dimen name="back_size" tools:ignore="PxUsage">138px</dimen>
+    <dimen name="left_size" tools:ignore="PxUsage">30px</dimen>
+    <dimen name="padding_top_and_button" tools:ignore="PxUsage">40px</dimen>
+    <dimen name="margin_top_size_btn" tools:ignore="PxUsage">130px</dimen>
+
+
+
+    <!-- ListView -->
+    <dimen name="list_divider_height">1px</dimen>
+    <dimen name="list_divider_height_negative">-1px</dimen>
+    <color name="tab_panel_divider">@color/bar_divider</color>
+    <color name="bar_divider">#D4D6D8</color>
+</resources>
+

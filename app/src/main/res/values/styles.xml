@@ -1,0 +1,96 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="QMUI.Compat.NoActionBar">
+
+        <!-- Customize your theme here. -->
+        <!-- 标题栏颜色 -->
+        <item name="colorPrimary">@color/font_dark</item>
+        <!-- 状态栏颜色 -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!-- 强调颜色 -->
+        <item name="colorAccent">@color/black</item>
+        <!-- 窗口颜色 -->
+        <item name="android:windowBackground">@android:color/white</item>
+        <!-- 虚拟导航栏颜色 -->
+        <item name="android:navigationBarColor">@color/black</item>
+        <!--&lt;!&ndash;设置menu菜单的背景色&ndash;&gt;-->
+        <item name="android:itemBackground">@color/white</item>
+        <!--&lt;!&ndash;设置Menu菜单的字体颜色&ndash;&gt;-->
+        <item name="android:textColorPrimary">@android:color/darker_gray</item>
+        <!--&lt;!&ndash;设置Menu窗口不覆盖ToolBar视图&ndash;&gt;-->
+        <item name="overlapAnchor">false</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--设置tabLayout字体大小-->
+    <style name="MyCustomTabTextAppearance">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!--修改默认（未选中）的文字大小 -->
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">12sp</dimen>
+    <!--修改选中的文字大小 -->
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">12sp</dimen>
+    <!--修改图片文字间距大小-->
+    <dimen name="design_bottom_navigation_margin" tools:override="true">8dp</dimen>
+    <!--高度-->
+    <dimen name="design_bottom_navigation_height" tools:override="true">50dp</dimen>
+
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstsUnderlineColor" format="color" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsShouldExpand" format="boolean" />
+        <attr name="pstsTextAllCaps" format="boolean" />
+    </declare-styleable>
+
+    <style name="CustomDatePickerDialog" parent="@style/AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:windowBackground">@color/transparentsmll_bg</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+    <!--自定义弹出框样式-->
+    <style name="MyDialog" parent="android:Theme.Dialog">
+        <!-- 背景颜色及透明程度 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 是否半透明 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 是否没有标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否背景模糊 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <!-- 设置背景模糊的透明度-->
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+
+    <!--自定义弹出框样式-->
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">@dimen/text_normal_size</item>
+    </style>
+
+
+    <style name="SwitchTheme" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+
+</resources>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rlTop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/back_size"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        tools:ignore="PxUsage">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_centerVertical="true"
+            android:padding="25px"
+            android:src="@drawable/ic_chevron_left_black_24dp"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tvPassLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="@string/str_location"
+            android:textSize="@dimen/text_normal_size"
+            android:textStyle="bold" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvOk"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginEnd="15px"-->
+<!--            android:padding="25px"-->
+<!--            android:clickable="false"-->
+<!--            android:text="@string/str_ok_select"-->
+<!--            android:textSize="@dimen/text_normal_size"-->
+<!--            android:textStyle="bold" />-->
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginStart="@dimen/mar_size"
+        android:background="@color/gray_line"
+        tools:ignore="PxUsage" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        >
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/bmapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/mar_size"
+            android:src="@drawable/ic_location"
+            android:clickable="false"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginStart="@dimen/mar_size"
+        android:background="@color/gray_line"
+        tools:ignore="PxUsage" />
+
+    <LinearLayout
+        android:id="@+id/llLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateDrawable="@drawable/loading_progressbar"
+            />
+    </LinearLayout>
+
+
+    <com.yanzhenjie.recyclerview.SwipeRecyclerView
+        android:id="@+id/recycler_view"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>
