@@ -1,7 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <FrameLayout
+        android:layout_marginTop="20px"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <SurfaceView
+            android:id="@+id/ayv_mSurfaceView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:orientation="vertical"
+        android:layout_gravity="right"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:id="@+id/imgControl"
+            android:layout_width="96px"
+            android:layout_height="95px"
+            android:src="@drawable/ic_ptz_control"
+            tools:ignore="PxUsage" />
+
+        <TextView
+            android:id="@+id/tvControl"
+            android:layout_marginTop="10px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_small_size"
+            android:text="@string/str_PTZ_control"
+            tools:ignore="PxUsage" />
+
+    </LinearLayout>
+
+    <com.yanzhenjie.recyclerview.SwipeRecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1" />
 </LinearLayout>

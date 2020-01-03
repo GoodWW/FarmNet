@@ -58,5 +58,6 @@
     <string name="select_address_pop_title">所在地区</string>
     <string name="str_location">位置信息</string>
     <string name="str_ok_select">确认选择</string>
+    <string name="str_PTZ_control">云台控制</string>
 
 </resources>

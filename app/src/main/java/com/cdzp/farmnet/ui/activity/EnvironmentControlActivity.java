@@ -10,6 +10,7 @@ import com.cdzp.farmnet.R;
 import com.cdzp.farmnet.adapter.MyPagerAdapter;
 import com.cdzp.farmnet.ui.fragment.DeviceControlFragment;
 import com.cdzp.farmnet.ui.fragment.MyFragment;
+import com.cdzp.farmnet.ui.fragment.VideoSurveillanceFragment;
 import com.qmuiteam.qmui.widget.QMUITabSegment;
 import com.qmuiteam.qmui.widget.QMUITopBarLayout;
 
@@ -62,7 +63,7 @@ public class EnvironmentControlActivity extends AppCompatActivity {
         List<Fragment> mFragments = new ArrayList<>();
         mFragments.add(new DeviceControlFragment());
         mFragments.add(new MyFragment());
-        mFragments.add(new DeviceControlFragment());
+        mFragments.add(new VideoSurveillanceFragment());
         mFragments.add(new MyFragment());
         mFragments.add(new DeviceControlFragment());
         String[] mTitles = new String[]{
