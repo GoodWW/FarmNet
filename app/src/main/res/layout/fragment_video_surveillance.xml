@@ -6,9 +6,9 @@
     android:orientation="vertical">
 
     <FrameLayout
-        android:layout_marginTop="20px"
         android:layout_width="match_parent"
         android:layout_height="0px"
+        android:layout_marginTop="20px"
         android:layout_weight="1">
 
         <SurfaceView
@@ -18,12 +18,13 @@
     </FrameLayout>
 
     <LinearLayout
+        android:id="@+id/llControl"
         android:layout_width="200px"
         android:layout_height="200px"
-        android:orientation="vertical"
         android:layout_gravity="right"
         android:gravity="center"
-        >
+        android:orientation="vertical"
+        tools:ignore="PxUsage">
 
         <ImageView
             android:id="@+id/imgControl"
@@ -34,11 +35,11 @@
 
         <TextView
             android:id="@+id/tvControl"
-            android:layout_marginTop="10px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_small_size"
+            android:layout_marginTop="10px"
             android:text="@string/str_PTZ_control"
+            android:textSize="@dimen/text_small_size"
             tools:ignore="PxUsage" />
 
     </LinearLayout>
@@ -47,5 +48,23 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/rlControl"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="230px"
+            android:layout_height="230px"
+            android:background="@drawable/bg_tv_circle"
+            android:gravity="center"
+            android:text="@string/str_PTZ_control_n"
+            android:textSize="@dimen/text_small_size"
+            tools:ignore="PxUsage" />
+
+    </RelativeLayout>
 </LinearLayout>

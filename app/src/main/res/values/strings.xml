@@ -59,5 +59,7 @@
     <string name="str_location">位置信息</string>
     <string name="str_ok_select">确认选择</string>
     <string name="str_PTZ_control">云台控制</string>
+    <string name="str_list">列表显示</string>
+    <string name="str_PTZ_control_n">云台&#x000A;控制</string>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.cdzp.farmnet.base;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 public abstract class BaseFragment<P extends BaseFragmentPresenter, CONTRACT> extends Fragment {
     protected P p;
     private View mView;
+    public Context mContext;
 
 
     @Override
@@ -26,6 +28,7 @@ public abstract class BaseFragment<P extends BaseFragmentPresenter, CONTRACT> ex
         p.bindView(this);
         if (mView == null)
             mView = inflater.inflate(getLayoutID(), container, false);
+        mContext = getActivity();
         initView(mView);
         return mView;
     }
