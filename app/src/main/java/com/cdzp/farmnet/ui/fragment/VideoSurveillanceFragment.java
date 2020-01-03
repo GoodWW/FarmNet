@@ -1,18 +1,15 @@
 package com.cdzp.farmnet.ui.fragment;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.cdzp.farmnet.R;
+import com.cdzp.farmnet.base.BaseFragment;
 import com.cdzp.farmnet.contract.video_surveillance.VideoListAdapter;
+import com.cdzp.farmnet.contract.video_surveillance.VideoSurveillanceContract;
+import com.cdzp.farmnet.contract.video_surveillance.VideoSurveillancePresenter;
 import com.yanzhenjie.recyclerview.OnItemClickListener;
 import com.yanzhenjie.recyclerview.SwipeRecyclerView;
 
@@ -25,18 +22,16 @@ import java.util.List;
  * 邮箱：479696877@QQ.COM
  * 描述：视频监控Fragment
  */
-public class VideoSurveillanceFragment extends Fragment {
+public class VideoSurveillanceFragment extends BaseFragment<VideoSurveillancePresenter, VideoSurveillanceContract.View> {
     View mView;
     private SwipeRecyclerView mRecyclerView;
     private VideoListAdapter mAdapter;
     private static final int VIEWTYPE_TWO = 1;
     private List<String> mDataList;
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_video_surveillance, container, false);
 
+    @Override
+    protected void initView(View mView) {
         mRecyclerView = mView.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         mRecyclerView.setOnItemClickListener(mItemClickListener); // RecyclerView Item点击监听。
@@ -57,7 +52,22 @@ public class VideoSurveillanceFragment extends Fragment {
         mDataList = createDataList(0);
         mAdapter.notifyDataSetChanged(mDataList);
 
-        return mView;
+    }
+
+    @Override
+    protected int getLayoutID() {
+        return R.layout.fragment_video_surveillance;
+    }
+
+    @Override
+    public VideoSurveillanceContract.View getContract() {
+        return new VideoSurveillanceContract.View() {
+        };
+    }
+
+    @Override
+    public VideoSurveillancePresenter getPresenter() {
+        return new VideoSurveillancePresenter();
     }
 
     /**
@@ -69,10 +79,11 @@ public class VideoSurveillanceFragment extends Fragment {
             if (position == (mAdapter.getItemCount() - 1)) {
                 Toast.makeText(getActivity(), "添加按钮", Toast.LENGTH_SHORT).show();
             } else
-                Toast.makeText(getActivity(), "点击了第"+(position+1)+"个条目", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "点击了第" + (position + 1) + "个条目", Toast.LENGTH_SHORT).show();
 //                showSimpleBottomSheetList();
         }
     };
+
     protected List<String> createDataList(int start) {
         List<String> strings = new ArrayList<>();
         for (int i = start; i < start + 6; i++) {

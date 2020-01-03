@@ -58,9 +58,9 @@ public class VideoListAdapter extends BaseAdapter<VideoListAdapter.ViewHolder,St
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Log.e("", "      getItemViewType:       " + viewType);
         if (viewType == 1) {
-            return new ViewHolder(getInflater().inflate(R.layout.item_home_recycler_add, parent, false));
+            return new ViewHolder(getInflater().inflate(R.layout.item_video_add, parent, false));
         } else {
-            return new ViewHolder(getInflater().inflate(R.layout.item_home_recycler, parent, false));
+            return new ViewHolder(getInflater().inflate(R.layout.item_video_more, parent, false));
         }
     }
 
@@ -78,7 +78,7 @@ public class VideoListAdapter extends BaseAdapter<VideoListAdapter.ViewHolder,St
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvTitle = itemView.findViewById(R.id.tvTile);
+            tvTitle = itemView.findViewById(R.id.tvContent);
         }
 
         public void setData(String title) {
