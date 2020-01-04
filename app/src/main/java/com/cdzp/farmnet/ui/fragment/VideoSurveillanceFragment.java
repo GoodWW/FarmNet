@@ -74,8 +74,7 @@ public class VideoSurveillanceFragment extends BaseFragment<VideoSurveillancePre
         tvControl = mView.findViewById(R.id.tvControl);
         llControl.setOnClickListener(this);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-        mRecyclerView.setOnItemClickListener(mItemClickListener); // RecyclerView Item点击监听。
-        mRecyclerView.useDefaultLoadMore(); // 使用默认的加载更多的View。
+
 
         mAdapter = new VideoListAdapter(getActivity()) {
             @Override
@@ -88,6 +87,7 @@ public class VideoSurveillanceFragment extends BaseFragment<VideoSurveillancePre
                     return super.getItemViewType(position);
             }
         };
+        mRecyclerView.setOnItemClickListener(mItemClickListener); // RecyclerView Item点击监听。
         mRecyclerView.setAdapter(mAdapter);
         mDataList = createDataList(0);
         mAdapter.notifyDataSetChanged(mDataList);
