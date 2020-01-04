@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_marginTop="20px"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        tools:ignore="PxUsage">
 
         <SurfaceView
             android:id="@+id/ayv_mSurfaceView"
@@ -56,15 +57,68 @@
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1">
-
-        <TextView
-            android:layout_width="230px"
-            android:layout_height="230px"
+        <RelativeLayout
+            android:id="@+id/rlLeft"
+            android:layout_width="450px"
+            android:layout_height="450px"
+            android:layout_marginStart="45px"
+            android:layout_marginEnd="45px"
             android:background="@drawable/bg_tv_circle"
-            android:gravity="center"
-            android:text="@string/str_PTZ_control_n"
-            android:textSize="@dimen/text_small_size"
-            tools:ignore="PxUsage" />
+            tools:ignore="PxUsage">
+            <TextView
+                android:id="@+id/tvControlBtm"
+                android:layout_width="230px"
+                android:layout_height="230px"
+                android:background="@drawable/bg_tv_circle"
+                android:gravity="center"
+
+                android:text="@string/str_PTZ_control_n"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/text_small_size"
+                tools:ignore="PxUsage" />
+
+            <ImageView
+                android:layout_width="230px"
+                android:layout_height="68px"
+                android:id="@+id/imgArrowsTop"
+                android:padding="10px"
+                android:src="@drawable/ic_arrows_top"
+                android:layout_above="@+id/tvControlBtm"
+                android:layout_alignStart="@+id/tvControlBtm"
+                />
+            <ImageView
+                android:layout_width="230px"
+                android:layout_height="68px"
+                android:id="@+id/imgArrowsDown"
+                android:src="@drawable/ic_arrows_down"
+                android:padding="10px"
+                android:layout_below="@+id/tvControlBtm"
+                android:layout_alignStart="@+id/tvControlBtm"
+                />
+            <ImageView
+                android:layout_width="72px"
+                android:layout_height="230px"
+                android:id="@+id/imgArrowsLeft"
+                android:src="@drawable/ic_arrows_left"
+                android:padding="10px"
+                android:layout_toStartOf="@+id/tvControlBtm"
+                android:layout_alignTop="@+id/tvControlBtm"
+                />
+            <ImageView
+                android:layout_width="72px"
+                android:layout_height="230px"
+                android:id="@+id/imgArrowsRight"
+                android:padding="10px"
+                android:src="@drawable/ic_arrows_right"
+                android:layout_toEndOf="@+id/tvControlBtm"
+                android:layout_alignTop="@+id/tvControlBtm"
+                />
+
+        </RelativeLayout>
+
+
+
+
 
     </RelativeLayout>
 </LinearLayout>
