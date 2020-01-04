@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -56,68 +57,169 @@
         android:id="@+id/rlControl"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@color/white">
+
         <RelativeLayout
             android:id="@+id/rlLeft"
             android:layout_width="450px"
             android:layout_height="450px"
             android:layout_marginStart="45px"
+            android:layout_marginTop="80px"
             android:layout_marginEnd="45px"
             android:background="@drawable/bg_tv_circle"
             tools:ignore="PxUsage">
+
             <TextView
                 android:id="@+id/tvControlBtm"
                 android:layout_width="230px"
                 android:layout_height="230px"
+                android:layout_centerInParent="true"
                 android:background="@drawable/bg_tv_circle"
                 android:gravity="center"
-
                 android:text="@string/str_PTZ_control_n"
-                android:layout_centerInParent="true"
                 android:textSize="@dimen/text_small_size"
                 tools:ignore="PxUsage" />
 
             <ImageView
+                android:id="@+id/imgArrowsTop"
                 android:layout_width="230px"
                 android:layout_height="68px"
-                android:id="@+id/imgArrowsTop"
-                android:padding="10px"
-                android:src="@drawable/ic_arrows_top"
                 android:layout_above="@+id/tvControlBtm"
                 android:layout_alignStart="@+id/tvControlBtm"
-                />
+                android:padding="10px"
+                android:src="@drawable/ic_arrows_top" />
+
             <ImageView
+                android:id="@+id/imgArrowsDown"
                 android:layout_width="230px"
                 android:layout_height="68px"
-                android:id="@+id/imgArrowsDown"
-                android:src="@drawable/ic_arrows_down"
-                android:padding="10px"
                 android:layout_below="@+id/tvControlBtm"
                 android:layout_alignStart="@+id/tvControlBtm"
-                />
+                android:padding="10px"
+                android:src="@drawable/ic_arrows_down" />
+
             <ImageView
-                android:layout_width="72px"
-                android:layout_height="230px"
                 android:id="@+id/imgArrowsLeft"
-                android:src="@drawable/ic_arrows_left"
-                android:padding="10px"
-                android:layout_toStartOf="@+id/tvControlBtm"
-                android:layout_alignTop="@+id/tvControlBtm"
-                />
-            <ImageView
                 android:layout_width="72px"
                 android:layout_height="230px"
-                android:id="@+id/imgArrowsRight"
-                android:padding="10px"
-                android:src="@drawable/ic_arrows_right"
-                android:layout_toEndOf="@+id/tvControlBtm"
                 android:layout_alignTop="@+id/tvControlBtm"
-                />
+                android:layout_toStartOf="@+id/tvControlBtm"
+                android:padding="10px"
+                android:src="@drawable/ic_arrows_left" />
+
+            <ImageView
+                android:id="@+id/imgArrowsRight"
+                android:layout_width="72px"
+                android:layout_height="230px"
+                android:layout_alignTop="@+id/tvControlBtm"
+                android:layout_toEndOf="@+id/tvControlBtm"
+                android:padding="10px"
+                android:src="@drawable/ic_arrows_right" />
 
         </RelativeLayout>
 
+        <ImageView
+            android:id="@+id/imgSun"
+            android:layout_width="270px"
+            android:layout_height="35px"
+            android:layout_toEndOf="@+id/rlLeft"
+            android:src="@drawable/ic_sun"
+            tools:ignore="PxUsage" />
 
+        <ImageView
+            android:id="@+id/imgSunAdd"
+            android:layout_width="270px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgSun"
+            android:layout_marginTop="20px"
+            android:layout_toEndOf="@+id/rlLeft"
+            android:padding="10px"
+            android:src="@drawable/ic_sun_add"
+            tools:ignore="PxUsage" />
 
+        <com.cdzp.farmnet.utils.VerticalSeekBarWrapper
+            android:id="@+id/seekBarContainer1"
+            android:layout_width="270px"
+            android:layout_height="450px"
+            android:layout_below="@+id/imgSunAdd"
+            android:layout_toEndOf="@+id/rlLeft"
+            tools:ignore="PxUsage">
+
+            <com.cdzp.farmnet.utils.VerticalSeekBar
+                android:id="@+id/seekBar1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:max="100"
+                android:maxHeight="2dp"
+                android:progress="30"
+                android:progressDrawable="@drawable/seek_bar_bg_bb"
+                android:splitTrack="false"
+                android:thumb="@drawable/ic_seek_bar_thumb"
+                app:seekBarRotation="CW270" />
+        </com.cdzp.farmnet.utils.VerticalSeekBarWrapper>
+
+        <ImageView
+            android:id="@+id/imgSunRemove"
+            android:layout_width="270px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seekBarContainer1"
+            android:layout_toEndOf="@+id/rlLeft"
+            android:padding="20px"
+            android:src="@drawable/ic_sun_remove"
+            tools:ignore="PxUsage" />
+
+        <ImageView
+            android:id="@+id/imgVoice"
+            android:layout_width="270px"
+            android:layout_height="35px"
+            android:layout_toEndOf="@+id/seekBarContainer1"
+            android:src="@drawable/ic_voice"
+            tools:ignore="PxUsage" />
+
+        <ImageView
+            android:id="@+id/imgVoiceAdd"
+            android:layout_width="270px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgVoice"
+            android:layout_marginTop="20px"
+            android:layout_toEndOf="@+id/seekBarContainer1"
+            android:padding="10px"
+            android:src="@drawable/ic_sun_add"
+            tools:ignore="PxUsage" />
+
+        <!-- Clock wise - 270 -->
+        <com.cdzp.farmnet.utils.VerticalSeekBarWrapper
+            android:id="@+id/seekBarContainer2"
+            android:layout_width="270px"
+            android:layout_height="450px"
+            android:layout_below="@+id/imgVoiceAdd"
+            android:layout_toEndOf="@+id/seekBarContainer1"
+            android:minWidth="10dp"
+            tools:ignore="PxUsage">
+
+            <com.cdzp.farmnet.utils.VerticalSeekBar
+                android:id="@+id/seekBar2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:max="100"
+                android:maxHeight="2dp"
+                android:progress="30"
+                android:progressDrawable="@drawable/seek_bar_bg"
+                android:splitTrack="false"
+                android:thumb="@drawable/ic_seek_bar_thumb"
+                app:seekBarRotation="CW270" />
+        </com.cdzp.farmnet.utils.VerticalSeekBarWrapper>
+
+        <ImageView
+            android:id="@+id/imgVoiceRemove"
+            android:layout_width="270px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/seekBarContainer2"
+            android:layout_toEndOf="@+id/seekBarContainer1"
+            android:padding="20px"
+            android:src="@drawable/ic_sun_remove"
+            tools:ignore="PxUsage" />
 
 
     </RelativeLayout>
