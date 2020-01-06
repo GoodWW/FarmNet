@@ -111,7 +111,9 @@ public class HomeFragment extends BaseFragment<HomePresenter, HomeContract.View>
         mRefreshLayout.setOnRefreshListener(mRefreshListener); // 刷新监听。
         mRecyclerView = mView.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        mRecyclerView.setOnItemClickListener(mItemClickListener); // RecyclerView Item点击监听。
+        if (null == mAdapter) {
+            mRecyclerView.setOnItemClickListener(mItemClickListener); // RecyclerView Item点击监听。
+        }
         mRecyclerView.useDefaultLoadMore(); // 使用默认的加载更多的View。
         mRecyclerView.setLoadMoreListener(mLoadMoreListener); // 加载更多的监听。
 

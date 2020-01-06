@@ -76,6 +76,9 @@ public class VideoSurveillanceFragment extends BaseFragment<VideoSurveillancePre
         mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
 
 
+        if (null == mAdapter) {
+            mRecyclerView.setOnItemClickListener(mItemClickListener); // RecyclerView Item点击监听。
+        }
         mAdapter = new VideoListAdapter(getActivity()) {
             @Override
             public int getItemViewType(int position) {
@@ -87,7 +90,6 @@ public class VideoSurveillanceFragment extends BaseFragment<VideoSurveillancePre
                     return super.getItemViewType(position);
             }
         };
-        mRecyclerView.setOnItemClickListener(mItemClickListener); // RecyclerView Item点击监听。
         mRecyclerView.setAdapter(mAdapter);
         mDataList = createDataList(0);
         mAdapter.notifyDataSetChanged(mDataList);
