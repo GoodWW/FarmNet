@@ -65,7 +65,7 @@ public class EnvironmentControlActivity extends AppCompatActivity {
         mFragments.add(new MyFragment());
         mFragments.add(new VideoSurveillanceFragment());
         mFragments.add(new MyFragment());
-        mFragments.add(new DeviceControlFragment());
+        mFragments.add(new AlarmFragment());
         String[] mTitles = new String[]{
                 "设备控制",
                 "参数设置",
