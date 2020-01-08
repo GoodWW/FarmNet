@@ -39,12 +39,9 @@
             android:textSize="@dimen/text_small_size" />
 
     </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
+    <com.yanzhenjie.recyclerview.SwipeRecyclerView
+        android:id="@+id/recycler_view"
         android:layout_below="@+id/llTop"
-        android:background="@color/line_bg" />
-
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>
