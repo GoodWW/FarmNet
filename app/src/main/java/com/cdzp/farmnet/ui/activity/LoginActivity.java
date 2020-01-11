@@ -2,6 +2,7 @@ package com.cdzp.farmnet.ui.activity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import com.cdzp.farmnet.R;
 import com.cdzp.farmnet.base.BaseView;
+import com.cdzp.farmnet.bean.BaseEntity;
 import com.cdzp.farmnet.bean.UserInfo;
 import com.cdzp.farmnet.contract.login.LoginContract;
 import com.cdzp.farmnet.contract.login.LoginPresenter;
@@ -40,6 +42,12 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
             public void handlerResult(UserInfo userInfo) {
 
             }
+
+            @Override
+            public void handlerIsPhoneResult(BaseEntity<UserInfo> userInfo) {
+                Log.e("  ", "handlerIsPhoneResult:    数据返回" + userInfo.toString());
+            }
+
         };
     }
 
@@ -67,8 +75,9 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
                 if (s.length() > 10) {
                     if (RegexStringUtil.MatchTelNum(s.toString())) {
 //                        tipDialog.show();
-
-                        CountDownTimerUtils mCountDownTimerUtils = new CountDownTimerUtils(LoginActivity.this ,tvTime, 60000, 1000); //倒计时1分钟
+                        Log.e("  ", "数据: "+ s.toString());
+                        p.getContract().requestIsPhone(s.toString());
+                        CountDownTimerUtils mCountDownTimerUtils = new CountDownTimerUtils(LoginActivity.this, tvTime, 60000, 1000); //倒计时1分钟
                         mCountDownTimerUtils.start();
                     } else {
                         etPhone.setError("手机号不正确");

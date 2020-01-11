@@ -1,29 +1,56 @@
 package com.cdzp.farmnet.bean;
 
-import com.google.gson.annotations.SerializedName;
-
 /**
  * 作者：张人文
- * 时间：2019/10/25 11:41
+ * 时间：2020/1/11 17:52
  * 邮箱：479696877@QQ.COM
  * 描述：
  */
-public class UserInfo extends BaseEntity {
+public class TestBean {
 
 
     /**
+     * success : true
+     * code : 0
      * data : {"Id":0,"Account":"string","Phone":"string","NickName":"string","Password":"string","PlainCode":"string","RoleID":0,"WeChatOpenID":"string","AuthCode":"string","HeadPath":"string","CreateTime":"string","Status":0}
+     * msg : string
      */
 
-    @SerializedName("data")
-    private DataBean dataX;
+    private boolean success;
+    private int code;
+    private DataBean data;
+    private String msg;
 
-    public DataBean getDataX() {
-        return dataX;
+    public boolean isSuccess() {
+        return success;
     }
 
-    public void setDataX(DataBean dataX) {
-        this.dataX = dataX;
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public DataBean getData() {
+        return data;
+    }
+
+    public void setData(DataBean data) {
+        this.data = data;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public static class DataBean {
@@ -150,12 +177,5 @@ public class UserInfo extends BaseEntity {
         public void setStatus(int Status) {
             this.Status = Status;
         }
-    }
-
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-                "dataX=" + dataX +
-                '}';
     }
 }

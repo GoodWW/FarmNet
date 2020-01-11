@@ -16,10 +16,7 @@ public class AddFarmModel extends BaseViewModel<AddFarmPresenter,AddFarmContract
     @Override
     public AddFarmContract.Model getContract() {
         return new AddFarmContract.Model() {
-            @Override
-            public void excuteAdd(String name, String code) throws Exception {
 
-            }
         };
     }
 }

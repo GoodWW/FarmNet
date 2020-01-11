@@ -7,6 +7,8 @@ package com.cdzp.farmnet.bean;
  * 描述： bean基类
  */
 public class BaseEntity<T> {
+
+
     private boolean success;
 
     private int code;

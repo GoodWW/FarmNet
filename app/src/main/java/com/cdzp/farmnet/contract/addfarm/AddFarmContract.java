@@ -10,16 +10,12 @@ import com.cdzp.farmnet.bean.BaseEntity;
  */
 public interface AddFarmContract {
     interface Model {
-        void excuteAdd(String name, String code) throws Exception;
     }
 
     interface View<T extends BaseEntity> {
-        void handlerAddResult(T t);
     }
 
     interface Presenter<T extends BaseEntity> {
-        void requestAdd(String name, String code);
 
-        void responseAddResult(T t);
     }
 }

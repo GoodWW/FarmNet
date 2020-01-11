@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.cdzp.farmnet.R;
 import com.cdzp.farmnet.base.BaseView;
-import com.cdzp.farmnet.bean.BaseEntity;
 import com.cdzp.farmnet.contract.addfarm.AddFarmContract;
 import com.cdzp.farmnet.contract.addfarm.AddFarmPresenter;
 import com.cdzp.farmnet.utils.cityselect.SelectAddressPop;
@@ -42,11 +41,7 @@ public class AddFrameActivity extends BaseView<AddFarmPresenter, AddFarmContract
     @Override
     public AddFarmContract.View getContract() {
         return new AddFarmContract.View() {
-            @Override
 
-            public void handlerAddResult(BaseEntity baseEntity) {
-
-            }
         };
     }
 
