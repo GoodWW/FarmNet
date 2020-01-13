@@ -23,7 +23,6 @@ import android.widget.Toast;
 import com.cdzp.farmnet.R;
 import com.cdzp.farmnet.base.BaseAdapter;
 import com.cdzp.farmnet.base.BaseFragment;
-import com.cdzp.farmnet.bean.UserInfo;
 import com.cdzp.farmnet.contract.home.HomeContract;
 import com.cdzp.farmnet.contract.home.HomePresenter;
 import com.cdzp.farmnet.contract.home.HomeRecyclerAdapter;
@@ -65,6 +64,12 @@ public class HomeFragment extends BaseFragment<HomePresenter, HomeContract.View>
     @Override
     protected int getLayoutID() {
         return R.layout.fragment_home;
+    }
+
+    @Override
+    public HomeContract.View getContract() {
+        return new HomeContract.View() {
+        };
     }
 
     @Override
@@ -140,15 +145,15 @@ public class HomeFragment extends BaseFragment<HomePresenter, HomeContract.View>
     }
 
 
-    @Override
-    public HomeContract.View getContract() {
-        return new HomeContract.View<UserInfo>() {
-            @Override
-            public void handlerResult(UserInfo userInfo) {
-
-            }
-        };
-    }
+//    @Override
+//    public HomeContract.View getContract() {
+////        return new HomeContract.View<UserInfo>() {
+////            @Override
+////            public void handlerResult(UserInfo userInfo) {
+////
+////            }
+////        };
+//    }
 
     @Override
     public HomePresenter getPresenter() {

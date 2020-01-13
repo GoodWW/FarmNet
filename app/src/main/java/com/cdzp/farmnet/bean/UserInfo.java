@@ -1,161 +1,153 @@
 package com.cdzp.farmnet.bean;
 
-import com.google.gson.annotations.SerializedName;
-
 /**
  * 作者：张人文
  * 时间：2019/10/25 11:41
  * 邮箱：479696877@QQ.COM
  * 描述：
  */
-public class UserInfo extends BaseEntity {
+public class UserInfo  {
 
 
     /**
-     * data : {"Id":0,"Account":"string","Phone":"string","NickName":"string","Password":"string","PlainCode":"string","RoleID":0,"WeChatOpenID":"string","AuthCode":"string","HeadPath":"string","CreateTime":"string","Status":0}
+     * Id : 0
+     * Account : string
+     * Phone : string
+     * NickName : string
+     * Password : string
+     * PlainCode : string
+     * RoleID : 0
+     * WeChatOpenID : string
+     * AuthCode : string
+     * HeadPath : string
+     * CreateTime : string
+     * Status : 0
      */
 
-    @SerializedName("data")
-    private DataBean dataX;
+    private int Id;
+    private String Account;
+    private String Phone;
+    private String NickName;
+    private String Password;
+    private String PlainCode;
+    private int RoleID;
+    private String WeChatOpenID;
+    private String AuthCode;
+    private String HeadPath;
+    private String CreateTime;
+    private int Status;
 
-    public DataBean getDataX() {
-        return dataX;
+    public int getId() {
+        return Id;
     }
 
-    public void setDataX(DataBean dataX) {
-        this.dataX = dataX;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
-    public static class DataBean {
-        /**
-         * Id : 0
-         * Account : string
-         * Phone : string
-         * NickName : string
-         * Password : string
-         * PlainCode : string
-         * RoleID : 0
-         * WeChatOpenID : string
-         * AuthCode : string
-         * HeadPath : string
-         * CreateTime : string
-         * Status : 0
-         */
+    public String getAccount() {
+        return Account;
+    }
 
-        private int Id;
-        private String Account;
-        private String Phone;
-        private String NickName;
-        private String Password;
-        private String PlainCode;
-        private int RoleID;
-        private String WeChatOpenID;
-        private String AuthCode;
-        private String HeadPath;
-        private String CreateTime;
-        private int Status;
+    public void setAccount(String Account) {
+        this.Account = Account;
+    }
 
-        public int getId() {
-            return Id;
-        }
+    public String getPhone() {
+        return Phone;
+    }
 
-        public void setId(int Id) {
-            this.Id = Id;
-        }
+    public void setPhone(String Phone) {
+        this.Phone = Phone;
+    }
 
-        public String getAccount() {
-            return Account;
-        }
+    public String getNickName() {
+        return NickName;
+    }
 
-        public void setAccount(String Account) {
-            this.Account = Account;
-        }
+    public void setNickName(String NickName) {
+        this.NickName = NickName;
+    }
 
-        public String getPhone() {
-            return Phone;
-        }
+    public String getPassword() {
+        return Password;
+    }
 
-        public void setPhone(String Phone) {
-            this.Phone = Phone;
-        }
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
 
-        public String getNickName() {
-            return NickName;
-        }
+    public String getPlainCode() {
+        return PlainCode;
+    }
 
-        public void setNickName(String NickName) {
-            this.NickName = NickName;
-        }
+    public void setPlainCode(String PlainCode) {
+        this.PlainCode = PlainCode;
+    }
 
-        public String getPassword() {
-            return Password;
-        }
+    public int getRoleID() {
+        return RoleID;
+    }
 
-        public void setPassword(String Password) {
-            this.Password = Password;
-        }
+    public void setRoleID(int RoleID) {
+        this.RoleID = RoleID;
+    }
 
-        public String getPlainCode() {
-            return PlainCode;
-        }
+    public String getWeChatOpenID() {
+        return WeChatOpenID;
+    }
 
-        public void setPlainCode(String PlainCode) {
-            this.PlainCode = PlainCode;
-        }
+    public void setWeChatOpenID(String WeChatOpenID) {
+        this.WeChatOpenID = WeChatOpenID;
+    }
 
-        public int getRoleID() {
-            return RoleID;
-        }
+    public String getAuthCode() {
+        return AuthCode;
+    }
 
-        public void setRoleID(int RoleID) {
-            this.RoleID = RoleID;
-        }
+    public void setAuthCode(String AuthCode) {
+        this.AuthCode = AuthCode;
+    }
 
-        public String getWeChatOpenID() {
-            return WeChatOpenID;
-        }
+    public String getHeadPath() {
+        return HeadPath;
+    }
 
-        public void setWeChatOpenID(String WeChatOpenID) {
-            this.WeChatOpenID = WeChatOpenID;
-        }
+    public void setHeadPath(String HeadPath) {
+        this.HeadPath = HeadPath;
+    }
 
-        public String getAuthCode() {
-            return AuthCode;
-        }
+    public String getCreateTime() {
+        return CreateTime;
+    }
 
-        public void setAuthCode(String AuthCode) {
-            this.AuthCode = AuthCode;
-        }
+    public void setCreateTime(String CreateTime) {
+        this.CreateTime = CreateTime;
+    }
 
-        public String getHeadPath() {
-            return HeadPath;
-        }
+    public int getStatus() {
+        return Status;
+    }
 
-        public void setHeadPath(String HeadPath) {
-            this.HeadPath = HeadPath;
-        }
-
-        public String getCreateTime() {
-            return CreateTime;
-        }
-
-        public void setCreateTime(String CreateTime) {
-            this.CreateTime = CreateTime;
-        }
-
-        public int getStatus() {
-            return Status;
-        }
-
-        public void setStatus(int Status) {
-            this.Status = Status;
-        }
+    public void setStatus(int Status) {
+        this.Status = Status;
     }
 
     @Override
     public String toString() {
         return "UserInfo{" +
-                "dataX=" + dataX +
+                "Id=" + Id +
+                ", Account='" + Account + '\'' +
+                ", Phone='" + Phone + '\'' +
+                ", NickName='" + NickName + '\'' +
+                ", Password='" + Password + '\'' +
+                ", PlainCode='" + PlainCode + '\'' +
+                ", RoleID=" + RoleID +
+                ", WeChatOpenID='" + WeChatOpenID + '\'' +
+                ", AuthCode='" + AuthCode + '\'' +
+                ", HeadPath='" + HeadPath + '\'' +
+                ", CreateTime='" + CreateTime + '\'' +
+                ", Status=" + Status +
                 '}';
     }
 }

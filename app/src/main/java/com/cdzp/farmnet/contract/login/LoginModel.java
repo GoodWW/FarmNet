@@ -16,10 +16,7 @@ public class LoginModel extends BaseViewModel<LoginPresenter,LoginContract.Model
     @Override
     public LoginContract.Model getContract() {
         return new LoginContract.Model() {
-            @Override
-            public void excuteLogin(String name, String code) throws Exception {
 
-            }
         };
     }
 }

@@ -1,6 +1,5 @@
 package com.cdzp.farmnet.contract.login;
 
-import com.cdzp.farmnet.bean.BaseEntity;
 import com.cdzp.farmnet.bean.UserInfo;
 
 /**
@@ -11,20 +10,20 @@ import com.cdzp.farmnet.bean.UserInfo;
  */
 public interface LoginContract {
     interface Model {
-        void excuteLogin(String name, String code) throws Exception;
+//        void excuteLogin(String name, String code) throws Exception;
     }
 
-    interface View<T extends BaseEntity> {
-        void handlerResult(T t);
-        void handlerIsPhoneResult(BaseEntity<UserInfo> t);
+    interface View {
+        void handlerIsPhoneResult(boolean userInfo);
+        void handlerLoginOrRegisterResult(UserInfo userInfo,int flag);
     }
 
-    interface Presenter<T extends BaseEntity> {
-        void requestLogin(String name, String code);
+    interface Presenter {
+        void requestLoginOrRegister(String name, String code,int flag);
+        void responseLoginOrRegister(UserInfo userInfo,int flag);
 
-        void responseResult(T t);
 
         void requestIsPhone(String strIsPhone);
-        void responseIsPhone(T userInfo);
+        void responseIsPhone(boolean userInfo);
     }
 }

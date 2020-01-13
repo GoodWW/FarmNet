@@ -1,11 +1,9 @@
 package com.cdzp.farmnet.contract.login;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
 
 import com.cdzp.farmnet.base.BaseViewPresenter;
 import com.cdzp.farmnet.bean.BaseEntity;
-import com.cdzp.farmnet.bean.TestBean;
 import com.cdzp.farmnet.bean.UserInfo;
 import com.cdzp.farmnet.ui.activity.LoginActivity;
 import com.cdzp.farmnet.utils.MyRetrofit;
@@ -20,17 +18,34 @@ import io.reactivex.schedulers.Schedulers;
  * 邮箱：479696877@QQ.COM
  * 描述：
  */
-public class LoginPresenter extends BaseViewPresenter<LoginActivity,LoginModel,LoginContract.Presenter> {
+public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel, LoginContract.Presenter> {
     @Override
     public LoginContract.Presenter getContract() {
-        return new LoginContract.Presenter<UserInfo>() {
+        return new LoginContract.Presenter() {
+
+
+            @SuppressLint("CheckResult")
             @Override
-            public void requestLogin(String name, String code) {
+            public void requestLoginOrRegister(String name, String code, final int flag) {
+                MyRetrofit.createRetrofit().create(IRequestNetwork.class)
+                        .requestLoginOrRegister(name, code)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Consumer<BaseEntity<UserInfo>>() {
+                            @Override
+                            public void accept(BaseEntity<UserInfo> userInfoBaseEntity) throws Exception {
+                                    if (flag == 1) {
+                                        userInfoBaseEntity.getData().getAuthCode();
+                                        responseLoginOrRegister(userInfoBaseEntity.getData(), flag);
+                                    }
+                            }
+                        });
 
             }
 
             @Override
-            public void responseResult(UserInfo baseEntity) {
+            public void responseLoginOrRegister(UserInfo userInfo, int flag) {
+                getView().getContract().handlerLoginOrRegisterResult(userInfo, flag);
 
             }
 
@@ -38,26 +53,25 @@ public class LoginPresenter extends BaseViewPresenter<LoginActivity,LoginModel,L
             @Override
             public void requestIsPhone(String strIsPhone) {
                 MyRetrofit.createRetrofit().create(IRequestNetwork.class) // IRequestNetwork
-                        // IRequestNetwork.registerAction
                         .isPhoneAction(strIsPhone)  // Observable<RegisterResponse> 上游 被观察者 耗时操作
                         .subscribeOn(Schedulers.io()) // todo 给上游分配异步线程
                         .observeOn(AndroidSchedulers.mainThread()) // todo 给下游切换 主线程
                         // 2.注册完成之后，更新注册UI
-                        .subscribe(new Consumer<BaseEntity<BaseEntity<TestBean>>>() {
+                        .subscribe(new Consumer<BaseEntity<UserInfo>>() {
                             @Override
-                            public void accept(BaseEntity<BaseEntity<TestBean>> baseEntity) throws Exception {
-                                Log.e("  ", "accept: "+ baseEntity.toString());
-                            }
+                            public void accept(BaseEntity<UserInfo> userInfoBaseEntity) throws Exception {
+                                    if (null == userInfoBaseEntity.getData())
+                                        responseIsPhone(false);
+                                    else
+                                        responseIsPhone(true);
+                                }
                         });
-
             }
 
             @Override
-            public void responseIsPhone(UserInfo userInfo) {
-//                getView().getContract().handlerIsPhoneResult(userInfo);
+            public void responseIsPhone(boolean userInfo) {
+                getView().getContract().handlerIsPhoneResult(userInfo);
             }
-
-
         };
     }
 

@@ -17,15 +17,15 @@ public class HomeModel extends BaseFragmentModel<HomePresenter, HomeContract.Mod
     @Override
     public HomeContract.Model getContract() {
         return new HomeContract.Model() {
-            @Override
-            public void executeLogin(String name, String pwd) throws Exception {
+//            @Override
+//            public void executeLogin(String name, String pwd) throws Exception {
 //                //省略网络请求
 //                if ("admin".equalsIgnoreCase(name) && "123".equalsIgnoreCase(pwd)) {
 //                    p.getContract().responseResult(new UserInfo("智棚","张人文"));
 //                } else {
 //                    p.getContract().responseResult(null);
 //                }
-            }
+//            }
         };
     }
 }
