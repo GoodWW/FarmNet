@@ -1,4 +1,4 @@
-package com.cdzp.farmnet.contract.login;
+package com.cdzp.farmnet.api;
 
 import com.cdzp.farmnet.bean.BaseEntity;
 import com.cdzp.farmnet.bean.UserInfo;
@@ -8,7 +8,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public interface IRequestNetwork {
+public interface ILoginRequestNetwork {
 
     @FormUrlEncoded
     @POST("api/Account/SendLoginOrRegCode")

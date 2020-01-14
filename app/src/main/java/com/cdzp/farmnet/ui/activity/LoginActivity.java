@@ -39,6 +39,7 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
     private Button btnLogin;
     @InjectView(R.id.tvTime)
     private TextView tvTime;
+
     QMUITipDialog tipDialog;
 
     @Override
@@ -54,15 +55,13 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
 
             @Override
             public void handlerLoginOrRegisterResult(UserInfo userInfo, int flag) {
-                Log.e(TAG, "handlerLoginOrRegisterResult: "+userInfo.toString()+"    ==="+flag );
+                Log.e(TAG, "handlerLoginOrRegisterResult: " + userInfo.toString() + "    ===" + flag);
                 if (flag == 1) {
-                   Date.authCode = userInfo.getAuthCode();
+                    Date.userInfo = userInfo;
                     startActivity(PWDSettingActivity.class);
-
                 } else {
 
                 }
-
             }
         };
     }
@@ -152,8 +151,5 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
                 startActivity(PWDLoginActivity.class);
                 break;
         }
-
     }
-
-
 }

@@ -1,5 +1,7 @@
 package com.cdzp.farmnet.utils;
 
+import com.cdzp.farmnet.bean.UserInfo;
+
 /**
  * 作者：张人文
  * 时间：2020/1/13 18:55
@@ -7,5 +9,5 @@ package com.cdzp.farmnet.utils;
  * 描述：
  */
 public class Date {
-    public static String authCode = null;
+    public static UserInfo userInfo = null;
 }
