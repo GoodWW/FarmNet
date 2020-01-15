@@ -1,5 +1,7 @@
 package com.cdzp.farmnet.ui.activity;
 
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -36,6 +38,14 @@ public class PWDSettingActivity extends BaseView<PWDSettingPresenter, PWDSetting
     @Override
     public PWDSettingContract.View getContract() {
         return new PWDSettingContract.View() {
+            @Override
+            public void handlerSettingPWDResult(int code) {
+                switch (code) {
+                    case 200:
+                        startActivity(HomeActivity.class);
+                        break;
+                }
+            }
         };
     }
 
@@ -48,9 +58,21 @@ public class PWDSettingActivity extends BaseView<PWDSettingPresenter, PWDSetting
     private void click(View view) {
         switch (view.getId()) {
             case R.id.imgEye:
+                if (flag) {
+                    imgEye.setImageResource(R.drawable.ic_eye_open);
+                    etPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    flag = false;
+                } else {
+                    imgEye.setImageResource(R.drawable.ic_eye_close);
+                    etPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    flag = true;
+                }
                 break;
             case R.id.btnRegister:
-                p.getContract().requestSettingPWD(Date.userInfo.getPhone(),etPass.getText().toString(),Date.userInfo.getAuthCode());
+                if (!"".equals(etPass.getText().toString()))
+                    p.getContract().requestSettingPWD(Date.userInfo.getPhone(), etPass.getText().toString(), Date.userInfo.getAuthCode());
+                else
+                    etPass.setError("请输入密码");
                 break;
             case R.id.back:
                 finish();

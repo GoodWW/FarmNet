@@ -23,8 +23,6 @@ public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel,
     @Override
     public LoginContract.Presenter getContract() {
         return new LoginContract.Presenter() {
-
-
             @SuppressLint("CheckResult")
             @Override
             public void requestLoginOrRegister(String name, String code, final int flag) {
@@ -41,13 +39,11 @@ public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel,
                                 }
                             }
                         });
-
             }
 
             @Override
             public void responseLoginOrRegister(UserInfo userInfo, int flag) {
                 getView().getContract().handlerLoginOrRegisterResult(userInfo, flag);
-
             }
 
             @SuppressLint("CheckResult")
