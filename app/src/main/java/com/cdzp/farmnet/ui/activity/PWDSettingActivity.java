@@ -11,6 +11,7 @@ import com.cdzp.farmnet.base.BaseView;
 import com.cdzp.farmnet.contract.pwdsetting.PWDSettingContract;
 import com.cdzp.farmnet.contract.pwdsetting.PWDSettingPresenter;
 import com.cdzp.farmnet.utils.Date;
+import com.cdzp.farmnet.utils.ToastMessage;
 import com.cmonbaby.ioc.core.annotation.ContentView;
 import com.cmonbaby.ioc.core.annotation.InjectView;
 import com.cmonbaby.ioc.core.annotation.OnClick;
@@ -43,6 +44,9 @@ public class PWDSettingActivity extends BaseView<PWDSettingPresenter, PWDSetting
                 switch (code) {
                     case 200:
                         startActivity(HomeActivity.class);
+                        break;
+                    case 1015:
+                        ToastMessage.toastWarn("设置密码已超时",true);
                         break;
                 }
             }
