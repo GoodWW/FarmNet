@@ -1,5 +1,6 @@
 package com.cdzp.farmnet.utils;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
 
@@ -25,7 +26,7 @@ public class ToastMessage {
         if (isShowIcon == null) {
             isShowIcon = true;
         }
-        Toasty.success(MyBaseApplication.getContext(), text, Toast.LENGTH_SHORT, isShowIcon).show();
+        Toasty.success(MyBaseApplication.getInstance(), text, Toast.LENGTH_SHORT, isShowIcon).show();
     }
 
     /**
@@ -34,10 +35,10 @@ public class ToastMessage {
      * @param text       需要显示的消息
      * @param isShowIcon 是否需要显示图标 默认显示
      */
-    public static void toastError(@NonNull String text, Boolean isShowIcon) {
+    public static void toastError(Activity context, @NonNull String text, Boolean isShowIcon) {
         if (isShowIcon == null) {
             isShowIcon = true;
-            Toasty.error(MyBaseApplication.getContext(), text, Toast.LENGTH_SHORT, isShowIcon).show();
+            Toasty.error(context, text, Toast.LENGTH_SHORT, isShowIcon).show();
         }
     }
 
@@ -47,7 +48,7 @@ public class ToastMessage {
      * @param text 需要显示的消息
      */
     public static void toastNormal(@NonNull String text) {
-        Toasty.normal(MyBaseApplication.getContext(), text, Toast.LENGTH_SHORT).show();
+        Toasty.normal(MyBaseApplication.getInstance(), text, Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -60,7 +61,7 @@ public class ToastMessage {
         if (isShowIcon == null) {
             isShowIcon = true;
         }
-        Toasty.warning(MyBaseApplication.getContext(), text, Toast.LENGTH_SHORT, isShowIcon).show();
+        Toasty.warning(MyBaseApplication.getInstance(), text, Toast.LENGTH_SHORT, isShowIcon).show();
     }
 }
 

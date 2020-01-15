@@ -5,16 +5,18 @@ import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.cdzp.farmnet.R;
 import com.cdzp.farmnet.base.BaseView;
 import com.cdzp.farmnet.contract.pwdsetting.PWDSettingContract;
 import com.cdzp.farmnet.contract.pwdsetting.PWDSettingPresenter;
 import com.cdzp.farmnet.utils.Date;
-import com.cdzp.farmnet.utils.ToastMessage;
 import com.cmonbaby.ioc.core.annotation.ContentView;
 import com.cmonbaby.ioc.core.annotation.InjectView;
 import com.cmonbaby.ioc.core.annotation.OnClick;
+
+import es.dmoral.toasty.Toasty;
 
 /**
  * 作者：张人文
@@ -46,7 +48,7 @@ public class PWDSettingActivity extends BaseView<PWDSettingPresenter, PWDSetting
                         startActivity(HomeActivity.class);
                         break;
                     case 1015:
-                        ToastMessage.toastWarn("设置密码已超时",true);
+                        Toasty.error(PWDSettingActivity.this, "设置密码已超时", Toast.LENGTH_SHORT, true).show();
                         break;
                 }
             }

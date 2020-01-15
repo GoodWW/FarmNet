@@ -33,10 +33,8 @@ public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel,
                         .subscribe(new Consumer<BaseEntity<UserInfo>>() {
                             @Override
                             public void accept(BaseEntity<UserInfo> userInfoBaseEntity) throws Exception {
-                                if (flag == 1) {
-                                    userInfoBaseEntity.getData().getAuthCode();
-                                    responseLoginOrRegister(userInfoBaseEntity.getData(), flag);
-                                }
+                                userInfoBaseEntity.getData().getAuthCode();
+                                responseLoginOrRegister(userInfoBaseEntity.getData(), flag);
                             }
                         });
             }
