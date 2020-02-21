@@ -48,21 +48,34 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
     public LoginContract.View getContract() {
         return new LoginContract.View() {
             @Override
-            public void handlerIsPhoneResult(boolean userInfo) {
-                Log.e("  ", "数据返回    " + userInfo);
+            public void handlerIsPhoneResult(int code) {//0 1 2 已注册  未注册 请求网络失败
+                Log.e("  ", "数据返回    " + code);
                 tipDialog.dismiss();
-                if (userInfo) btnLogin.setText(getResources().getString(R.string.str_login));
-                else btnLogin.setText(getResources().getString(R.string.str_register));
+                if (0 == code) {
+                    btnLogin.setText(getResources().getString(R.string.str_login));
+                    Toasty.success(LoginActivity.this, "验证码已发送", Toast.LENGTH_SHORT, true).show();
+                } else if (1 == code) {
+                    btnLogin.setText(getResources().getString(R.string.str_register));
+                    Toasty.success(LoginActivity.this, "验证码已发送", Toast.LENGTH_SHORT, true).show();
+                } else {
+                    Toasty.error(LoginActivity.this, "请求网络失败", Toast.LENGTH_SHORT, true).show();
+                }
             }
 
             @Override
-            public void handlerLoginOrRegisterResult(UserInfo userInfo, int flag) {
-                Log.e(TAG, "handlerLoginOrRegisterResult: " + userInfo.toString() + "    ===" + flag);
-                Date.userInfo = userInfo;
-                if (flag == 1) {
-                    startActivity(PWDSettingActivity.class);
-                } else if (flag == 2) {
-                    startActivity(HomeActivity.class);
+            public void handlerLoginOrRegisterResult(UserInfo userInfo, int flag, int responseCode) {
+                if (null != userInfo && 0 != flag && 0 != responseCode) {
+                    Log.e(TAG, "handlerLoginOrRegisterResult: " + userInfo.toString() + "    ===" + flag);
+                    Date.userInfo = userInfo;
+                    if (flag == 1 && responseCode == 200) {
+                        startActivity(PWDSettingActivity.class);
+                    } else if (flag == 2 && responseCode == 200) {
+                        startActivity(HomeActivity.class);
+                    } else {
+                        Toasty.error(LoginActivity.this, "验证码错误", Toast.LENGTH_SHORT, true).show();
+                    }
+                } else {
+                    Toasty.error(LoginActivity.this, "请求网络失败", Toast.LENGTH_SHORT, true).show();
                 }
             }
         };
@@ -90,7 +103,7 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
                 if (s.length() > 10) {
                     if (RegexStringUtil.MatchTelNum(s.toString())) {
                         tipDialog.show();
-//                        Log.e("  ", "数据: "+ s.toString());
+                        Log.e("  ", "数据: " + s.toString());
                         requestCode(s.toString());
                     } else {
                         Toasty.error(LoginActivity.this, "手机号不正确", Toast.LENGTH_SHORT, true).show();

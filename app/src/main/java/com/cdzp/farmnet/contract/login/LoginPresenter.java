@@ -1,6 +1,7 @@
 package com.cdzp.farmnet.contract.login;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
 
 import com.cdzp.farmnet.api.ILoginRequestNetwork;
 import com.cdzp.farmnet.base.BaseViewPresenter;
@@ -9,8 +10,9 @@ import com.cdzp.farmnet.bean.UserInfo;
 import com.cdzp.farmnet.ui.activity.LoginActivity;
 import com.cdzp.farmnet.utils.MyRetrofit;
 
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -20,6 +22,8 @@ import io.reactivex.schedulers.Schedulers;
  * 描述：
  */
 public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel, LoginContract.Presenter> {
+    private static final String TAG = "LoginPresenter";
+
     @Override
     public LoginContract.Presenter getContract() {
         return new LoginContract.Presenter() {
@@ -30,18 +34,40 @@ public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel,
                         .requestLoginOrRegister(name, code)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Consumer<BaseEntity<UserInfo>>() {
+                        .subscribe(/*new Consumer<BaseEntity<UserInfo>>() {
                             @Override
                             public void accept(BaseEntity<UserInfo> userInfoBaseEntity) throws Exception {
-                                userInfoBaseEntity.getData().getAuthCode();
-                                responseLoginOrRegister(userInfoBaseEntity.getData(), flag);
+                                responseLoginOrRegister(userInfoBaseEntity.getData(), flag,userInfoBaseEntity.getCode());
                             }
-                        });
+                        }*/
+                                new Observer<BaseEntity<UserInfo>>() {
+                                    @Override
+                                    public void onSubscribe(Disposable d) {
+
+                                    }
+
+                                    @Override
+                                    public void onNext(BaseEntity<UserInfo> userInfoBaseEntity) {
+                                        responseLoginOrRegister(userInfoBaseEntity.getData(), flag, userInfoBaseEntity.getCode());
+                                    }
+
+                                    @Override
+                                    public void onError(Throwable e) {
+                                        Log.e(TAG, "requestLoginOrRegister onError:     " + e.getMessage());
+                                        responseLoginOrRegister(null, 0, 0);
+                                    }
+
+                                    @Override
+                                    public void onComplete() {
+
+                                    }
+                                }
+                        );
             }
 
             @Override
-            public void responseLoginOrRegister(UserInfo userInfo, int flag) {
-                getView().getContract().handlerLoginOrRegisterResult(userInfo, flag);
+            public void responseLoginOrRegister(UserInfo userInfo, int flag, int responseCode) {
+                getView().getContract().handlerLoginOrRegisterResult(userInfo, flag, responseCode);
             }
 
             @SuppressLint("CheckResult")
@@ -52,20 +78,38 @@ public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel,
                         .subscribeOn(Schedulers.io()) // todo 给上游分配异步线程
                         .observeOn(AndroidSchedulers.mainThread()) // todo 给下游切换 主线程
                         // 2.注册完成之后，更新注册UI
-                        .subscribe(new Consumer<BaseEntity<UserInfo>>() {
-                            @Override
-                            public void accept(BaseEntity<UserInfo> userInfoBaseEntity) throws Exception {
-                                if (null == userInfoBaseEntity.getData())
-                                    responseIsPhone(false);
-                                else
-                                    responseIsPhone(true);
-                            }
-                        });
+                        .subscribe(
+                                new Observer<BaseEntity<UserInfo>>() {
+                                    @Override
+                                    public void onSubscribe(Disposable d) {
+
+                                    }
+
+                                    @Override
+                                    public void onNext(BaseEntity<UserInfo> userInfoBaseEntity) {
+                                        if (null == userInfoBaseEntity.getData())
+                                            responseIsPhone(1);
+                                        else
+                                            responseIsPhone(0);
+                                    }
+
+                                    @Override
+                                    public void onError(Throwable e) {
+                                        Log.e(TAG, "requestIsPhone  onError:     " + e.getMessage());
+                                        responseIsPhone(3);
+                                    }
+
+                                    @Override
+                                    public void onComplete() {
+
+                                    }
+                                });
             }
 
+
             @Override
-            public void responseIsPhone(boolean userInfo) {
-                getView().getContract().handlerIsPhoneResult(userInfo);
+            public void responseIsPhone(int code) {
+                getView().getContract().handlerIsPhoneResult(code);
             }
         };
     }
