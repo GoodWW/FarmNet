@@ -69,5 +69,6 @@
     <string name="str_camera">拍照</string>
     <string name="str_current_alarm">当前报警</string>
     <string name="str_historical_alarm">历史报警</string>
+    <string name="str_user_name">请输入用户名</string>
 
 </resources>

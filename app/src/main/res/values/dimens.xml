@@ -4,7 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="mar_size" tools:ignore="PxUsage">40px</dimen>
     <dimen name="dp_70">70dp</dimen>
-    <dimen name="text_normal_size" tools:ignore="PxUsage">45px</dimen>
+    <dimen name="text_normal_size" tools:ignore="PxUsage">46px</dimen>
     <dimen name="text_small_size" tools:ignore="PxUsage">40px</dimen>
     <dimen name="text_s_small_size" tools:ignore="PxUsage">30px</dimen>
     <dimen name="text_big_size" tools:ignore="PxUsage">50px</dimen>

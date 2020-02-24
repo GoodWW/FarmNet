@@ -1,14 +1,21 @@
 package com.cdzp.farmnet.ui.activity;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.cdzp.farmnet.R;
 import com.cdzp.farmnet.base.BaseView;
-import com.cdzp.farmnet.bean.BaseEntity;
+import com.cdzp.farmnet.bean.UserInfo;
 import com.cdzp.farmnet.contract.pwdlogin.PWDLoginContract;
 import com.cdzp.farmnet.contract.pwdlogin.PWDLoginPresenter;
+import com.cdzp.farmnet.utils.Date;
 import com.cmonbaby.ioc.core.annotation.ContentView;
+import com.cmonbaby.ioc.core.annotation.InjectView;
 import com.cmonbaby.ioc.core.annotation.OnClick;
+
+import es.dmoral.toasty.Toasty;
 
 /**
  * 作者：张人文
@@ -19,14 +26,50 @@ import com.cmonbaby.ioc.core.annotation.OnClick;
 @ContentView(R.layout.activity_pwdlogin)
 public class PWDLoginActivity extends BaseView<PWDLoginPresenter, PWDLoginContract.View> {
 
+    @InjectView(R.id.etPhone)
+    private EditText etPhone;
+
+    @InjectView(R.id.etPass)
+    private EditText etPass;
 
     @Override
     public PWDLoginContract.View getContract() {
         return new PWDLoginContract.View() {
+            private static final String TAG = "PWDLoginActivity";
+
             @Override
-            public void handlerResult(BaseEntity baseEntity) {
+            public void handlerResult(UserInfo userInfo, int responseCode) {
+//                if (null == userInfo) {
+//                    Toasty.error(PWDLoginActivity.this, "用户名或密码不正确", Toast.LENGTH_SHORT, true).show();
+//                } else {
+//                    startActivity(HomeActivity.class);
+//                }
+                Log.e(TAG, "handlerResult:     " + responseCode);
+
+                if (null != userInfo && 0 != responseCode) {
+                    Date.userInfo = userInfo;
+                }
+                if (responseCode == 1010) {
+                    startActivity(PWDSettingActivity.class);
+                } else if (responseCode == 1012) {
+                    Toasty.error(PWDLoginActivity.this, "验证码错误", Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 1013) {
+                    Toasty.error(PWDLoginActivity.this, "用户已存在", Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 1014) {
+                    Toasty.error(PWDLoginActivity.this, "已经发送过短信了", Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 200) {
+                    startActivity(HomeActivity.class);
+                } else if (responseCode == 1015) {
+                    Toasty.error(PWDLoginActivity.this, "验证码已超时", Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 1011) {
+                    Toasty.error(PWDLoginActivity.this, "账号或者密码错误", Toast.LENGTH_SHORT, true).show();
+                } else {
+                    Toasty.error(PWDLoginActivity.this, "请求网络失败", Toast.LENGTH_SHORT, true).show();
+                }
+
 
             }
+
         };
     }
 
@@ -35,14 +78,25 @@ public class PWDLoginActivity extends BaseView<PWDLoginPresenter, PWDLoginContra
         return new PWDLoginPresenter();
     }
 
-    @OnClick({R.id.tvForgetPWD,R.id.back,R.id.btnLogin,R.id.tvRegister})
+    @OnClick({R.id.tvForgetPWD, R.id.back, R.id.btnLogin, R.id.tvRegister})
     private void click(View view) {
         switch (view.getId()) {
             case R.id.tvForgetPWD:
                 startActivity(AuthenticationActivity.class);
                 break;
             case R.id.btnLogin:
-                startActivity(HomeActivity.class);
+                if (!"".equals(etPhone.getText().toString())) {
+                    if (!"".equals(etPass.getText().toString())) {
+                        p.getContract().requestLogin(etPhone.getText().toString(), etPass.getText().toString());
+//                            p.getContract().requestLoginOrRegister(etPhone.getText().toString(), etCode.getText().toString(), 2);
+                    } else {
+                        Toasty.error(PWDLoginActivity.this, "密码不能为空", Toast.LENGTH_SHORT, true).show();
+                        etPass.setError("密码不能为空");
+                    }
+                } else {
+                    Toasty.error(PWDLoginActivity.this, "手机号不正确", Toast.LENGTH_SHORT, true).show();
+                    etPhone.setError("用户名不能为空");
+                }
                 break;
             case R.id.back:
                 finish();

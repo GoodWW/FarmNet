@@ -1,6 +1,6 @@
 package com.cdzp.farmnet.contract.pwdlogin;
 
-import com.cdzp.farmnet.bean.BaseEntity;
+import com.cdzp.farmnet.bean.UserInfo;
 
 /**
  * 作者：张人文
@@ -13,13 +13,13 @@ public interface PWDLoginContract {
         void excuteLogin(String name, String pwd) throws Exception;
     }
 
-    interface View<T extends BaseEntity> {
-        void handlerResult(T t);
+    interface View {
+        void handlerResult(UserInfo userInfo, int code);
     }
 
-    interface Presenter<T extends BaseEntity> {
+    interface Presenter {
         void requestLogin(String name, String pwd);
 
-        void responseResult(T t);
+        void responseResult(UserInfo userInfo, int code);
     }
 }

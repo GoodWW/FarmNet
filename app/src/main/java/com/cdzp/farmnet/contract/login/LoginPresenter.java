@@ -34,12 +34,7 @@ public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel,
                         .requestLoginOrRegister(name, code)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(/*new Consumer<BaseEntity<UserInfo>>() {
-                            @Override
-                            public void accept(BaseEntity<UserInfo> userInfoBaseEntity) throws Exception {
-                                responseLoginOrRegister(userInfoBaseEntity.getData(), flag,userInfoBaseEntity.getCode());
-                            }
-                        }*/
+                        .subscribe(
                                 new Observer<BaseEntity<UserInfo>>() {
                                     @Override
                                     public void onSubscribe(Disposable d) {
@@ -48,7 +43,7 @@ public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel,
 
                                     @Override
                                     public void onNext(BaseEntity<UserInfo> userInfoBaseEntity) {
-                                        Log.e(TAG, "onNext: "+flag );
+                                        Log.e(TAG, "onNext: " + flag);
                                         responseLoginOrRegister(userInfoBaseEntity.getData(), flag, userInfoBaseEntity.getCode());
                                     }
 
