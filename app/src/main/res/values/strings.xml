@@ -7,7 +7,7 @@
     <string name="authentication">验证身份</string>
     <string name="hint_one">我们已经发送一条短信验证码至xxxxxxxxxxx</string>
     <string name="str_get_code">重新获取</string>
-    <string name="str_get_code_two">重新获取（60）</string>
+    <string name="str_get_code_two">重新获取（60s）</string>
     <string name="str_welcome">欢迎使用FARMNET</string>
     <string name="str_phone">请输入手机号</string>
     <string name="str_login">登录</string>

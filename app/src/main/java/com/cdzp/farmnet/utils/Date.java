@@ -10,4 +10,5 @@ import com.cdzp.farmnet.bean.UserInfo;
  */
 public class Date {
     public static UserInfo userInfo = null;
+    public static int height = 0;
 }

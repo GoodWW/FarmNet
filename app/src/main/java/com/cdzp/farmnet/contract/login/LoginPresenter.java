@@ -48,6 +48,7 @@ public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel,
 
                                     @Override
                                     public void onNext(BaseEntity<UserInfo> userInfoBaseEntity) {
+                                        Log.e(TAG, "onNext: "+flag );
                                         responseLoginOrRegister(userInfoBaseEntity.getData(), flag, userInfoBaseEntity.getCode());
                                     }
 

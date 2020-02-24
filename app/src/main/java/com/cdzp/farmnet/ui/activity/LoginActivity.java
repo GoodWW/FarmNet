@@ -65,20 +65,32 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
             @Override
             public void handlerLoginOrRegisterResult(UserInfo userInfo, int flag, int responseCode) {
                 if (null != userInfo && 0 != flag && 0 != responseCode) {
-                    Log.e(TAG, "handlerLoginOrRegisterResult: " + userInfo.toString() + "    ===" + flag);
+                    Log.e(TAG, "handlerLoginOrRegisterResult: " + userInfo.toString() + "    ===" + flag + "    ===" + responseCode);
                     Date.userInfo = userInfo;
-                    if (flag == 1 && responseCode == 200) {
+                    if (flag == 1 && responseCode == 1010) {
                         startActivity(PWDSettingActivity.class);
+                    } else if (responseCode == 1011) {
+                        Toasty.error(LoginActivity.this, "账号或者密码错误", Toast.LENGTH_SHORT, true).show();
+                    } else if (responseCode == 1012) {
+                        Toasty.error(LoginActivity.this, "验证码错误", Toast.LENGTH_SHORT, true).show();
+                    } else if (responseCode == 1013) {
+                        Toasty.error(LoginActivity.this, "用户已存在", Toast.LENGTH_SHORT, true).show();
+                    } else if (responseCode == 1014) {
+                        Toasty.error(LoginActivity.this, "已经发送过短信了", Toast.LENGTH_SHORT, true).show();
                     } else if (flag == 2 && responseCode == 200) {
                         startActivity(HomeActivity.class);
-                    } else {
-                        Toasty.error(LoginActivity.this, "验证码错误", Toast.LENGTH_SHORT, true).show();
+                    } else if (responseCode == 1015) {
+                        Toasty.error(LoginActivity.this, "验证码已超时", Toast.LENGTH_SHORT, true).show();
                     }
                 } else {
                     Toasty.error(LoginActivity.this, "请求网络失败", Toast.LENGTH_SHORT, true).show();
                 }
             }
         };
+    }
+    @Override
+    protected int getStatusBarColor() {
+        return R.color.white;
     }
 
     @Override
@@ -125,7 +137,7 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
         return new LoginPresenter();
     }
 
-    @OnClick({/*R.id.username, R.id.password, */ R.id.tvTime, R.id.btnLogin, R.id.back, R.id.tvPassLogin})
+    @OnClick({/*R.id.username, R.id.password, */ R.id.tvTime, R.id.btnLogin, /*R.id.back, */R.id.tvPassLogin})
     private void click(View view) {
         switch (view.getId()) {
 //            case R.id.username:
@@ -156,9 +168,9 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
                     etPhone.setError("手机号不正确");
                 }
                 break;
-            case R.id.back:
+          /*  case R.id.back:
                 finish();
-                break;
+                break;*/
             case R.id.tvPassLogin:
                 startActivity(PWDLoginActivity.class);
                 break;
