@@ -24,17 +24,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic ="true"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute"
         tools:replace="android:name">
+        <activity android:name=".ui.activity.ImportPhoneActivity"></activity>
         <activity
             android:name=".ui.activity.ControlActivity"
-            android:label="控制方式（定时 手动 自动）">
-
-        </activity>
-        <activity android:name=".ui.activity.EnvironmentControlActivity"
-            android:label="环境控制主界面"
-            >
+            android:label="控制方式（定时 手动 自动）"></activity>
+        <activity
+            android:name=".ui.activity.EnvironmentControlActivity"
+            android:label="环境控制主界面">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -87,6 +86,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

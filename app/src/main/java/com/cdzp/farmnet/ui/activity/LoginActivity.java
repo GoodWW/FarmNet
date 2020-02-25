@@ -52,23 +52,23 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
                 tipDialog.dismiss();
                 if (200 == responseCode) {
                     btnLogin.setText(getResources().getString(R.string.str_login));
-                    Toasty.success(LoginActivity.this, "验证码已发送", Toast.LENGTH_SHORT, true).show();
+                    Toasty.success(LoginActivity.this, getResources().getString(R.string.str_long03), Toast.LENGTH_SHORT, true).show();
                 } else if (1010 == responseCode) {
 
                     btnLogin.setText(getResources().getString(R.string.str_register));
-                    Toasty.success(LoginActivity.this, "验证码已发送", Toast.LENGTH_SHORT, true).show();
+                    Toasty.success(LoginActivity.this, getResources().getString(R.string.str_long03), Toast.LENGTH_SHORT, true).show();
                 } else if (responseCode == 1011) {
-                    Toasty.error(LoginActivity.this, "账号或者密码错误", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(LoginActivity.this, getResources().getString(R.string.str_long01), Toast.LENGTH_SHORT, true).show();
                 } else if (responseCode == 1012) {
-                    Toasty.error(LoginActivity.this, "验证码错误", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(LoginActivity.this, getString(R.string.str_long04), Toast.LENGTH_SHORT, true).show();
                 } else if (responseCode == 1013) {
-                    Toasty.error(LoginActivity.this, "用户已存在", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(LoginActivity.this, getString(R.string.str_long05), Toast.LENGTH_SHORT, true).show();
                 } else if (responseCode == 1014) {
-                    Toasty.error(LoginActivity.this, "已经发送过短信了", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(LoginActivity.this, getString(R.string.str_long06), Toast.LENGTH_SHORT, true).show();
                 } else if (responseCode == 1015) {
-                    Toasty.error(LoginActivity.this, "验证码已超时", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(LoginActivity.this, getString(R.string.str_long07), Toast.LENGTH_SHORT, true).show();
                 } else {
-                    Toasty.error(LoginActivity.this, "请求网络失败", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(LoginActivity.this, getString(R.string.str_long08), Toast.LENGTH_SHORT, true).show();
                 }
             }
 
@@ -80,20 +80,20 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
                     if (responseCode == 1010) {
                         startActivity(PWDSettingActivity.class);
                     } else if (responseCode == 1011) {
-                        Toasty.error(LoginActivity.this, "账号或者密码错误", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(LoginActivity.this, getResources().getString(R.string.str_long01), Toast.LENGTH_SHORT, true).show();
                     } else if (responseCode == 1012) {
-                        Toasty.error(LoginActivity.this, "验证码错误", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(LoginActivity.this, getString(R.string.str_long04), Toast.LENGTH_SHORT, true).show();
                     } else if (responseCode == 1013) {
-                        Toasty.error(LoginActivity.this, "用户已存在", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(LoginActivity.this, getString(R.string.str_long05), Toast.LENGTH_SHORT, true).show();
                     } else if (responseCode == 1014) {
-                        Toasty.error(LoginActivity.this, "已经发送过短信了", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(LoginActivity.this, getString(R.string.str_long06), Toast.LENGTH_SHORT, true).show();
                     } else if (responseCode == 200) {
                         startActivity(HomeActivity.class);
                     } else if (responseCode == 1015) {
-                        Toasty.error(LoginActivity.this, "验证码已超时", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(LoginActivity.this, getString(R.string.str_long07), Toast.LENGTH_SHORT, true).show();
                     }
                 } else {
-                    Toasty.error(LoginActivity.this, "请求网络失败", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(LoginActivity.this, getString(R.string.str_long08), Toast.LENGTH_SHORT, true).show();
                 }
             }
         };
@@ -109,7 +109,7 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
         super.onResume();
         tipDialog = new QMUITipDialog.Builder(LoginActivity.this)
                 .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
-                .setTipWord("请稍后...")
+                .setTipWord(getString(R.string.str_long11))
                 .create(false);
 
         etPhone.addTextChangedListener(new TextWatcher() {
@@ -129,8 +129,8 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
                         Log.e(TAG, "数据: " + s.toString());
                         requestCode(s.toString());
                     } else {
-                        Toasty.error(LoginActivity.this, "手机号不正确", Toast.LENGTH_SHORT, true).show();
-                        etPhone.setError("手机号不正确");
+                        Toasty.error(LoginActivity.this, getString(R.string.str_long09), Toast.LENGTH_SHORT, true).show();
+                        etPhone.setError(getString(R.string.str_long09));
                     }
                 }
             }
@@ -169,12 +169,12 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
                             p.getContract().requestLoginOrRegister(etPhone.getText().toString(), etCode.getText().toString());
                         }
                     } else {
-                        Toasty.error(LoginActivity.this, "请输入六位的验证码", Toast.LENGTH_SHORT, true).show();
-                        etCode.setError("请输入六位的验证码");
+                        Toasty.error(LoginActivity.this, getString(R.string.str_long10), Toast.LENGTH_SHORT, true).show();
+                        etCode.setError(getString(R.string.str_long10));
                     }
                 } else {
-                    Toasty.error(LoginActivity.this, "手机号不正确", Toast.LENGTH_SHORT, true).show();
-                    etPhone.setError("手机号不正确");
+                    Toasty.error(LoginActivity.this,  getString(R.string.str_long06), Toast.LENGTH_SHORT, true).show();
+                    etPhone.setError(getString(R.string.str_long06));
                 }
                 break;
             case R.id.tvTime:
@@ -182,7 +182,7 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
                     tipDialog.show();
                     requestCode(etPhone.getText().toString());
                 } else {
-                    etPhone.setError("手机号不正确");
+                    etPhone.setError(getString(R.string.str_long06));
                 }
                 break;
           /*  case R.id.back:

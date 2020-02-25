@@ -5,8 +5,7 @@
     <string name="title_capacity">智能</string>
     <string name="title_my">我的</string>
     <string name="authentication">验证身份</string>
-    <string name="hint_one">我们已经发送一条短信验证码至xxxxxxxxxxx</string>
-    <string name="str_get_code">重新获取</string>
+    <string name="hint_one">我们已经发送一条短信验证码至</string>
     <string name="str_get_code_two">重新获取（60s）</string>
     <string name="str_welcome">欢迎使用FARMNET</string>
     <string name="str_phone">请输入手机号</string>
@@ -69,5 +68,22 @@
     <string name="str_current_alarm">当前报警</string>
     <string name="str_historical_alarm">历史报警</string>
     <string name="str_user_name">请输入用户名</string>
+    <string name="tvBack">请注意查收</string>
+    <string name="str_in_code">请输入验证码</string>
+    <string name="str_get_code">重新获取</string>
+    <string name="str_import_phone">请输入您注册或绑定的手机号</string>
+    <string name="str_long01">账号或者密码错误</string>
+    <string name="str_long02">请输入手机号码</string>
+    <string name="str_long03">验证码已发送</string>
+    <string name="str_long04">验证码错误</string>
+    <string name="str_long05">用户已存在</string>
+    <string name="str_long06">已经发送过短信了</string>
+    <string name="str_long07">验证码已超时</string>
+    <string name="str_long08">请求网络失败</string>
+    <string name="str_long09">手机号不正确</string>
+    <string name="str_long10">请输入六位的验证码</string>
+    <string name="str_long11">请稍后...</string>
+    <string name="str_long12">密码不能为空</string>
+    <string name="str_long13">用户名不能为空</string>
 
 </resources>

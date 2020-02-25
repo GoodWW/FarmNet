@@ -1,13 +1,17 @@
 package com.cdzp.farmnet.ui.activity;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.cdzp.farmnet.R;
 import com.cdzp.farmnet.base.BaseView;
 import com.cdzp.farmnet.bean.BaseEntity;
 import com.cdzp.farmnet.contract.authentication.AuthenticationContract;
 import com.cdzp.farmnet.contract.authentication.AuthenticationPresenter;
+import com.cdzp.farmnet.utils.Date;
 import com.cmonbaby.ioc.core.annotation.ContentView;
+import com.cmonbaby.ioc.core.annotation.InjectView;
 import com.cmonbaby.ioc.core.annotation.OnClick;
 
 /**
@@ -19,6 +23,9 @@ import com.cmonbaby.ioc.core.annotation.OnClick;
 @ContentView(R.layout.activity_authentication)
 public class AuthenticationActivity extends BaseView<AuthenticationPresenter, AuthenticationContract.View> {
 
+    private static final String TAG = "验证身份";
+    @InjectView(R.id.tvPhone)
+    private TextView tvPhone;
     @Override
     public AuthenticationContract.View getContract() {
         return new AuthenticationContract.View() {
@@ -38,11 +45,18 @@ public class AuthenticationActivity extends BaseView<AuthenticationPresenter, Au
     private void click(View view) {
         switch (view.getId()) {
             case R.id.btnRegister:
-                startActivity(SettingPWDActivity.class);
+                String name = tvPhone.getText().toString();
+                String strPhone = Date.userInfo.getPhone();
+                char c = strPhone.charAt(2);
+                Log.e(TAG, "click:   AuthenticationActivity     "+c );
+//                startActivity(SettingPWDActivity.class);
                 break;
             case R.id.back:
                 finish();
                 break;
         }
     }
+
+
+
 }

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.AuthenticationActivity">
+    tools:context=".ui.activity.ImportPhoneActivity">
 
     <ImageView
         android:id="@+id/back"
@@ -12,6 +12,7 @@
         android:src="@drawable/ic_chevron_left_black_24dp"
         android:padding="25px"
         tools:ignore="PxUsage"
+        android:onClick="back"
         />
 
     <TextView
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="80px"
         android:layout_marginTop="268px"
-        android:text="@string/authentication"
+        android:text="验证手机号"
         android:textColor="#333333"
         android:textSize="61px"
         android:textStyle="bold"
@@ -34,7 +35,7 @@
         android:layout_marginStart="80px"
         android:layout_marginTop="25px"
         android:gravity="center_vertical"
-        android:text="@string/hint_one"
+        android:text="@string/str_import_phone"
         android:textSize="@dimen/text_small_size"
         android:maxLines="1"
         android:textColor="#333333"
@@ -45,7 +46,7 @@
         android:layout_height="280px"
         android:layout_marginStart="80px"
         android:gravity="top"
-        android:text="@string/tvBack"
+        android:clickable="false"
         android:layout_marginTop="10px"
         android:layout_below="@+id/tvPhone"
         android:textSize="@dimen/text_small_size"
@@ -54,26 +55,26 @@
         tools:ignore="PxUsage" />
 
     <EditText
-        android:id="@+id/etCode"
+        android:id="@+id/etPhone"
         android:layout_width="match_parent"
         android:layout_height="130px"
         android:layout_below="@+id/tvText"
         android:layout_marginStart="80px"
         android:layout_marginEnd="65px"
-        android:inputType="number"
-        android:maxLength="6"
+        android:inputType="phone"
+        android:maxLength="11"
         android:textSize="@dimen/text_normal_size"
         android:selectAllOnFocus="true"
         android:textColor="@color/black"
         android:background="@null"
-        android:hint="@string/str_in_code"
+        android:hint="@string/str_import_phone"
         android:textCursorDrawable="@drawable/cursor_size_black"
         android:textColorHint="@color/form_bg"
         tools:ignore="PxUsage" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:layout_below="@+id/etCode"
+        android:layout_below="@+id/etPhone"
         android:layout_marginStart="@dimen/mar_size"
         android:layout_marginEnd="@dimen/mar_size"
         android:background="#D6D7DC" />
@@ -88,19 +89,6 @@
         android:background="@color/gray_line"
         tools:ignore="PxUsage" />-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="130px"
-        android:layout_below="@+id/tvText"
-        android:layout_marginEnd="40px"
-        android:layout_alignParentEnd="true"
-        android:gravity="center_vertical"
-        android:id="@+id/tvTime"
-        android:textSize="@dimen/text_small_size"
-        android:text="@string/str_get_code_two"
-
-        android:textColor="#274082"
-        tools:ignore="PxUsage" />
 
     <Button
         android:id="@+id/btnRegister"
@@ -113,7 +101,7 @@
         android:text="@string/str_next"
         android:textColor="@color/white"
         android:textSize="@dimen/text_normal_size"
-
+        android:onClick="importIntent"
         tools:ignore="PxUsage" />
 
 </RelativeLayout>

@@ -48,7 +48,7 @@ public class PWDSettingActivity extends BaseView<PWDSettingPresenter, PWDSetting
                         startActivity(HomeActivity.class);
                         break;
                     case 1015:
-                        Toasty.error(PWDSettingActivity.this, "设置密码已超时", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(PWDSettingActivity.this, getString(R.string.str_long07), Toast.LENGTH_SHORT, true).show();
                         break;
                 }
             }
@@ -78,7 +78,7 @@ public class PWDSettingActivity extends BaseView<PWDSettingPresenter, PWDSetting
                 if (!"".equals(etPass.getText().toString()))
                     p.getContract().requestSettingPWD(Date.userInfo.getPhone(), etPass.getText().toString(), Date.userInfo.getAuthCode());
                 else
-                    etPass.setError("请输入密码");
+                    etPass.setError(getString(R.string.str_pwd));
                 break;
             case R.id.back:
                 finish();

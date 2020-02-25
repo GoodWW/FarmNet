@@ -50,19 +50,19 @@ public class PWDLoginActivity extends BaseView<PWDLoginPresenter, PWDLoginContra
                 if (responseCode == 1010) {
                     startActivity(PWDSettingActivity.class);
                 } else if (responseCode == 1012) {
-                    Toasty.error(PWDLoginActivity.this, "验证码错误", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(PWDLoginActivity.this, getString(R.string.str_long04), Toast.LENGTH_SHORT, true).show();
                 } else if (responseCode == 1013) {
-                    Toasty.error(PWDLoginActivity.this, "用户已存在", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(PWDLoginActivity.this, getString(R.string.str_long05), Toast.LENGTH_SHORT, true).show();
                 } else if (responseCode == 1014) {
-                    Toasty.error(PWDLoginActivity.this, "已经发送过短信了", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(PWDLoginActivity.this, getString(R.string.str_long06), Toast.LENGTH_SHORT, true).show();
                 } else if (responseCode == 200) {
                     startActivity(HomeActivity.class);
                 } else if (responseCode == 1015) {
-                    Toasty.error(PWDLoginActivity.this, "验证码已超时", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(PWDLoginActivity.this, getString(R.string.str_long07), Toast.LENGTH_SHORT, true).show();
                 } else if (responseCode == 1011) {
-                    Toasty.error(PWDLoginActivity.this, "账号或者密码错误", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(PWDLoginActivity.this, getString(R.string.str_long01), Toast.LENGTH_SHORT, true).show();
                 } else {
-                    Toasty.error(PWDLoginActivity.this, "请求网络失败", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(PWDLoginActivity.this, getString(R.string.str_long08), Toast.LENGTH_SHORT, true).show();
                 }
             }
 
@@ -87,7 +87,7 @@ public class PWDLoginActivity extends BaseView<PWDLoginPresenter, PWDLoginContra
     private void click(View view) {
         switch (view.getId()) {
             case R.id.tvForgetPWD:
-                startActivity(AuthenticationActivity.class);
+                startActivity(ImportPhoneActivity.class);
                 break;
             case R.id.btnLogin:
                 if (!"".equals(etPhone.getText().toString())) {
@@ -95,12 +95,12 @@ public class PWDLoginActivity extends BaseView<PWDLoginPresenter, PWDLoginContra
                         p.getContract().requestLogin(etPhone.getText().toString(), etPass.getText().toString());
                         tipDialog.show();
                     } else {
-                        Toasty.error(PWDLoginActivity.this, "密码不能为空", Toast.LENGTH_SHORT, true).show();
-                        etPass.setError("密码不能为空");
+                        Toasty.error(PWDLoginActivity.this, getString(R.string.str_long12), Toast.LENGTH_SHORT, true).show();
+                        etPass.setError(getString(R.string.str_long12));
                     }
                 } else {
-                    Toasty.error(PWDLoginActivity.this, "手机号不正确", Toast.LENGTH_SHORT, true).show();
-                    etPhone.setError("用户名不能为空");
+                    Toasty.error(PWDLoginActivity.this, getString(R.string.str_long13), Toast.LENGTH_SHORT, true).show();
+                    etPhone.setError(getString(R.string.str_long13));
                 }
                 break;
             case R.id.back:
