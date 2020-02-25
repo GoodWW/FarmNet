@@ -14,6 +14,7 @@ import com.cdzp.farmnet.utils.Date;
 import com.cmonbaby.ioc.core.annotation.ContentView;
 import com.cmonbaby.ioc.core.annotation.InjectView;
 import com.cmonbaby.ioc.core.annotation.OnClick;
+import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 import es.dmoral.toasty.Toasty;
 
@@ -31,6 +32,7 @@ public class PWDLoginActivity extends BaseView<PWDLoginPresenter, PWDLoginContra
 
     @InjectView(R.id.etPass)
     private EditText etPass;
+    private QMUITipDialog tipDialog;
 
     @Override
     public PWDLoginContract.View getContract() {
@@ -39,12 +41,8 @@ public class PWDLoginActivity extends BaseView<PWDLoginPresenter, PWDLoginContra
 
             @Override
             public void handlerResult(UserInfo userInfo, int responseCode) {
-//                if (null == userInfo) {
-//                    Toasty.error(PWDLoginActivity.this, "用户名或密码不正确", Toast.LENGTH_SHORT, true).show();
-//                } else {
-//                    startActivity(HomeActivity.class);
-//                }
                 Log.e(TAG, "handlerResult:     " + responseCode);
+                tipDialog.dismiss();
 
                 if (null != userInfo && 0 != responseCode) {
                     Date.userInfo = userInfo;
@@ -66,11 +64,18 @@ public class PWDLoginActivity extends BaseView<PWDLoginPresenter, PWDLoginContra
                 } else {
                     Toasty.error(PWDLoginActivity.this, "请求网络失败", Toast.LENGTH_SHORT, true).show();
                 }
-
-
             }
 
         };
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        tipDialog = new QMUITipDialog.Builder(PWDLoginActivity.this)
+                .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
+                .setTipWord("请稍后...")
+                .create(false);
     }
 
     @Override
@@ -88,7 +93,7 @@ public class PWDLoginActivity extends BaseView<PWDLoginPresenter, PWDLoginContra
                 if (!"".equals(etPhone.getText().toString())) {
                     if (!"".equals(etPass.getText().toString())) {
                         p.getContract().requestLogin(etPhone.getText().toString(), etPass.getText().toString());
-//                            p.getContract().requestLoginOrRegister(etPhone.getText().toString(), etCode.getText().toString(), 2);
+                        tipDialog.show();
                     } else {
                         Toasty.error(PWDLoginActivity.this, "密码不能为空", Toast.LENGTH_SHORT, true).show();
                         etPass.setError("密码不能为空");

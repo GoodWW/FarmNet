@@ -16,13 +16,13 @@ public interface LoginContract {
     interface View {
         void handlerIsPhoneResult(int code);
 
-        void handlerLoginOrRegisterResult(UserInfo userInfo, int flag, int responseCode);
+        void handlerLoginOrRegisterResult(UserInfo userInfo, int responseCode);
     }
 
     interface Presenter {
-        void requestLoginOrRegister(String name, String code, int flag);
+        void requestLoginOrRegister(String name, String code);
 
-        void responseLoginOrRegister(UserInfo userInfo, int flag, int responseCode);
+        void responseLoginOrRegister(UserInfo userInfo, int responseCode);
 
 
         void requestIsPhone(String strIsPhone);

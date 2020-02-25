@@ -22,14 +22,14 @@ import io.reactivex.schedulers.Schedulers;
  * 描述：
  */
 public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel, LoginContract.Presenter> {
-    private static final String TAG = "LoginPresenter";
+    private static final String TAG = "Login";
 
     @Override
     public LoginContract.Presenter getContract() {
         return new LoginContract.Presenter() {
             @SuppressLint("CheckResult")
             @Override
-            public void requestLoginOrRegister(String name, String code, final int flag) {
+            public void requestLoginOrRegister(String name, String code  ) {
                 MyRetrofit.createRetrofit().create(ILoginRequestNetwork.class)
                         .requestLoginOrRegister(name, code)
                         .subscribeOn(Schedulers.io())
@@ -43,14 +43,13 @@ public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel,
 
                                     @Override
                                     public void onNext(BaseEntity<UserInfo> userInfoBaseEntity) {
-                                        Log.e(TAG, "onNext: " + flag);
-                                        responseLoginOrRegister(userInfoBaseEntity.getData(), flag, userInfoBaseEntity.getCode());
+                                        responseLoginOrRegister(userInfoBaseEntity.getData(), userInfoBaseEntity.getCode());
                                     }
 
                                     @Override
                                     public void onError(Throwable e) {
                                         Log.e(TAG, "requestLoginOrRegister onError:     " + e.getMessage());
-                                        responseLoginOrRegister(null, 0, 0);
+                                        responseLoginOrRegister(null, 0);
                                     }
 
                                     @Override
@@ -62,8 +61,8 @@ public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel,
             }
 
             @Override
-            public void responseLoginOrRegister(UserInfo userInfo, int flag, int responseCode) {
-                getView().getContract().handlerLoginOrRegisterResult(userInfo, flag, responseCode);
+            public void responseLoginOrRegister(UserInfo userInfo , int responseCode) {
+                getView().getContract().handlerLoginOrRegisterResult(userInfo, responseCode);
             }
 
             @SuppressLint("CheckResult")
@@ -83,10 +82,9 @@ public class LoginPresenter extends BaseViewPresenter<LoginActivity, LoginModel,
 
                                     @Override
                                     public void onNext(BaseEntity<UserInfo> userInfoBaseEntity) {
-                                        if (null == userInfoBaseEntity.getData())
-                                            responseIsPhone(1);
-                                        else
-                                            responseIsPhone(0);
+                                        Log.e(TAG, "onNext:   请求手机是否注册   " + userInfoBaseEntity.getCode());
+                                        responseIsPhone(userInfoBaseEntity.getCode());
+
                                     }
 
                                     @Override
