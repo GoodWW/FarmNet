@@ -9,8 +9,6 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 public interface IPWDSettingNetwork {
-
-
     @FormUrlEncoded
     @POST("/api/Account/SetPassword")
     Observable<BaseEntity<UserInfo>> requestPWDSetting(@Field("AuthCode") String authCode, @Field("Password") String password

@@ -1,17 +1,24 @@
 package com.cdzp.farmnet.ui.activity;
 
+import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cdzp.farmnet.R;
 import com.cdzp.farmnet.base.BaseView;
-import com.cdzp.farmnet.bean.BaseEntity;
+import com.cdzp.farmnet.bean.UserInfo;
 import com.cdzp.farmnet.contract.authentication.AuthenticationContract;
 import com.cdzp.farmnet.contract.authentication.AuthenticationPresenter;
+import com.cdzp.farmnet.utils.CountDownTimerUtils;
 import com.cmonbaby.ioc.core.annotation.ContentView;
 import com.cmonbaby.ioc.core.annotation.InjectView;
 import com.cmonbaby.ioc.core.annotation.OnClick;
+import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
+
+import es.dmoral.toasty.Toasty;
 
 /**
  * 作者：张人文
@@ -25,22 +32,88 @@ public class AuthenticationActivity extends BaseView<AuthenticationPresenter, Au
     private static final String TAG = "验证身份";
     @InjectView(R.id.tvPhone)
     private TextView tvPhone;
-
+    @InjectView(R.id.tvTime)
+    private TextView tvTime;
+    @InjectView(R.id.etCode)
+    private TextView etCode;
+    private CountDownTimerUtils mCountDownTimerUtils; //倒计时1分钟
+    private QMUITipDialog tipDialog;
 
     @Override
     public AuthenticationContract.View getContract() {
         return new AuthenticationContract.View() {
             @Override
-            public void handlerResult(BaseEntity baseEntity) {
+            public void handlerResult(UserInfo t, int responseCode) {
+                Log.e(TAG, "handlerResult:   " + responseCode);
+                tipDialog.dismiss();
+                if (200 == responseCode) {
+                    action();
+                    Toasty.success(AuthenticationActivity.this, getResources().getString(R.string.str_long03), Toast.LENGTH_SHORT, true).show();
+                } else if (1010 == responseCode) {
+                    Toasty.success(AuthenticationActivity.this, getResources().getString(R.string.str_long03), Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 1011) {
+                    Toasty.error(AuthenticationActivity.this, getResources().getString(R.string.str_long01), Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 1012) {
+                    Toasty.error(AuthenticationActivity.this, getString(R.string.str_long04), Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 1013) {
+                    Toasty.error(AuthenticationActivity.this, getString(R.string.str_long05), Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 1014) {
+                    Toasty.error(AuthenticationActivity.this, getString(R.string.str_long06), Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 1015) {
+                    Toasty.error(AuthenticationActivity.this, getString(R.string.str_long07), Toast.LENGTH_SHORT, true).show();
+                } else {
+                    Toasty.error(AuthenticationActivity.this, getString(R.string.str_long08), Toast.LENGTH_SHORT, true).show();
+                }
+            }
+
+            @Override
+            public void handlerJudgeCodeResult(UserInfo t, int responseCode) {
+                Log.e(TAG, "handlerJudgeCodeResult:   " + responseCode);
+                tipDialog.dismiss();
+                if (200 == responseCode) {
+                    startActivity(SettingPWDActivity.class);
+                } else if (1010 == responseCode) {
+                    Toasty.success(AuthenticationActivity.this, getResources().getString(R.string.str_long03), Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 1011) {
+                    Toasty.error(AuthenticationActivity.this, getResources().getString(R.string.str_long01), Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 1012) {
+                    Toasty.error(AuthenticationActivity.this, getString(R.string.str_long04), Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 1013) {
+                    Toasty.error(AuthenticationActivity.this, getString(R.string.str_long05), Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 1014) {
+                    Toasty.error(AuthenticationActivity.this, getString(R.string.str_long06), Toast.LENGTH_SHORT, true).show();
+                } else if (responseCode == 1015) {
+                    Toasty.error(AuthenticationActivity.this, getString(R.string.str_long07), Toast.LENGTH_SHORT, true).show();
+                } else {
+                    Toasty.error(AuthenticationActivity.this, getString(R.string.str_long08), Toast.LENGTH_SHORT, true).show();
+                }
             }
         };
     }
 
+    private void action() {
+        if (null != mCountDownTimerUtils) {
+            mCountDownTimerUtils.onFinish();
+        } else {
+            mCountDownTimerUtils = new CountDownTimerUtils(AuthenticationActivity.this, tvTime, 60000, 1000);
+        }
+        mCountDownTimerUtils.start();
+    }
+
     @Override
-    protected void onResume() {
-        super.onResume();
-        String strResult = getString(R.string.hint_one) + "<font color='#EC7147'>" + addSpace(getIntent().getStringExtra("phone")) + "</font>";
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        String strResult = getString(R.string.hint_one) + "<font color='#EC7147'>" + addSpace(getIntent()
+                .getStringExtra("phone")) + "</font>";
         tvPhone.setText(Html.fromHtml(strResult));
+        if (null == tipDialog) {
+            tipDialog = new QMUITipDialog.Builder(AuthenticationActivity.this)
+                    .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
+                    .setTipWord(getString(R.string.str_long11))
+                    .create(false);
+        }
+        p.getContract().requestCode(getIntent().getStringExtra("phone"));
+        tipDialog.show();
     }
 
     @Override
@@ -48,12 +121,22 @@ public class AuthenticationActivity extends BaseView<AuthenticationPresenter, Au
         return new AuthenticationPresenter();
     }
 
-    @OnClick({R.id.btnRegister, R.id.back})
+    @OnClick({R.id.btnRegister, R.id.back, R.id.tvTime})
     private void click(View view) {
         switch (view.getId()) {
             case R.id.btnRegister:
-
-//                startActivity(SettingPWDActivity.class);
+                if (!"".equals(etCode.getText().toString()) && etCode.getText().toString().length() == 6) {
+                    p.getContract().judgeCode(etCode.getText().toString(), getIntent().getStringExtra("phone"));
+                    tipDialog.show();
+                } else {
+                    Toasty.error(AuthenticationActivity.this, getString(R.string.str_long10), Toast.LENGTH_SHORT, true).show();
+                }
+                break;
+            case R.id.tvTime:
+                if (11 == getIntent().getStringExtra("phone").length()) {
+                    p.getContract().requestCode(getIntent().getStringExtra("phone"));
+                    tipDialog.show();
+                }
                 break;
             case R.id.back:
                 finish();
@@ -74,15 +157,8 @@ public class AuthenticationActivity extends BaseView<AuthenticationPresenter, Au
             } else if (i == 6) {
                 sb.append(" ");
             }
-//            if (i!=0&&(i+1)%4==0){
-//                sb.append(" ");
-//            }
         }
-
         String trim = sb.toString().trim();
         return trim;
-
-
     }
-
 }

@@ -9,7 +9,6 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 public interface ILoginRequestNetwork {
-
     @FormUrlEncoded
     @POST("api/Account/SendLoginOrRegCode")
     Observable<BaseEntity<UserInfo>> isPhoneAction(@Field("Phone") String phone);

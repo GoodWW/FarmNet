@@ -55,7 +55,7 @@
 
     <EditText
         android:id="@+id/etCode"
-        android:layout_width="match_parent"
+        android:layout_width="500px"
         android:layout_height="130px"
         android:layout_below="@+id/tvText"
         android:layout_marginStart="80px"
@@ -98,7 +98,6 @@
         android:id="@+id/tvTime"
         android:textSize="@dimen/text_small_size"
         android:text="@string/str_get_code_two"
-
         android:textColor="#274082"
         tools:ignore="PxUsage" />
 

@@ -54,7 +54,6 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
                     btnLogin.setText(getResources().getString(R.string.str_login));
                     Toasty.success(LoginActivity.this, getResources().getString(R.string.str_long03), Toast.LENGTH_SHORT, true).show();
                 } else if (1010 == responseCode) {
-
                     btnLogin.setText(getResources().getString(R.string.str_register));
                     Toasty.success(LoginActivity.this, getResources().getString(R.string.str_long03), Toast.LENGTH_SHORT, true).show();
                 } else if (responseCode == 1011) {

@@ -1,6 +1,6 @@
 package com.cdzp.farmnet.contract.authentication;
 
-import com.cdzp.farmnet.bean.BaseEntity;
+import com.cdzp.farmnet.bean.UserInfo;
 
 /**
  * 作者：张人文
@@ -10,16 +10,19 @@ import com.cdzp.farmnet.bean.BaseEntity;
  */
 public interface AuthenticationContract {
     interface Model {
-        void excuteLogin(String code) throws Exception;
     }
 
-    interface View<T extends BaseEntity> {
-        void handlerResult(T t);
+    interface View {
+        void handlerResult(UserInfo t, int code);
+        void handlerJudgeCodeResult(UserInfo t, int code);
     }
 
-    interface Presenter<T extends BaseEntity> {
+    interface Presenter {
         void requestCode(String phone);
 
-        void responseResult(T t);
+        void judgeCode(String code, String phone);
+
+        void responseResult(UserInfo t, int code);
+        void responseJudgeCodeResult(UserInfo t, int code);
     }
 }

@@ -17,10 +17,6 @@ public class AuthenticationModel extends BaseViewModel<AuthenticationPresenter,A
     @Override
     public AuthenticationContract.Model getContract() {
         return new AuthenticationContract.Model() {
-            @Override
-            public void excuteLogin(String code) throws Exception {
-
-            }
         };
     }
 }

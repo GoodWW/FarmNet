@@ -243,7 +243,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="77px"
-        android:background="@color/line_black"
         android:orientation="vertical">
 
         <TextView
