@@ -86,5 +86,6 @@
     <string name="str_long11">请稍后...</string>
     <string name="str_long12">密码不能为空</string>
     <string name="str_long13">用户名不能为空</string>
+    <string name="str_long14">请输入正确的手机号</string>
 
 </resources>

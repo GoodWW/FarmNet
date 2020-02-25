@@ -5,7 +5,7 @@
     <string name="title_capacity">智能</string>
     <string name="title_my">我的</string>
     <string name="authentication">验证身份</string>
-    <string name="hint_one">我们已经发送一条短信验证码至</string>
+    <string name="hint_one">我们已经发送一条短信验证码至&#160;</string>
     <string name="str_get_code_two">重新获取（60s）</string>
     <string name="str_welcome">欢迎使用FARMNET</string>
     <string name="str_phone">请输入手机号</string>
@@ -85,5 +85,6 @@
     <string name="str_long11">请稍后...</string>
     <string name="str_long12">密码不能为空</string>
     <string name="str_long13">用户名不能为空</string>
+    <string name="str_long14">请输入正确的手机号</string>
 
 </resources>
