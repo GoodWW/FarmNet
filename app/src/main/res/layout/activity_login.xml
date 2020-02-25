@@ -125,7 +125,6 @@
         android:textColor="#274082"
         tools:ignore="PxUsage" />
 
-
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
