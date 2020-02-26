@@ -13,7 +13,7 @@
     <string name="str_weixin">微信</string>
     <string name="str_qq">QQ</string>
     <string name="str_pwd_login">密码登录</string>
-    <string name="str_pwd">请输入密码</string>
+    <string name="str_pwd">请设置登录密码</string>
     <string name="str_forget_pwd">忘记密码？</string>
     <string name="str_register_account">注册新账号</string>
     <string name="str_set_pwd">设置密码</string>
@@ -44,8 +44,8 @@
     <string name="str_next">下一步</string>
     <string name="str_please">邀请</string>
     <string name="str_register_new">注册新账号</string>
-    <string name="str_account">请输入账号</string>
-    <string name="str_pwd_again">请再次输入密码</string>
+    <string name="str_account">请输入用户名</string>
+    <string name="str_pwd_again">请再次确认密码</string>
     <string name="str_add_farm">添加农场</string>
     <string name="str_ok">确认</string>
     <string name="str_farm_name">请输入农场名称</string>
@@ -94,5 +94,7 @@
     <string name="str_long19">请确认登录密码</string>
     <string name="str_long20">两次密码输入不一致</string>
     <string name="str_long21">密码重置成功，请重新登录</string>
+    <string name="str_long22">首字母必须为英文字母</string>
+    <string name="str_long23">账号注册成功，请进行登录</string>
 
 </resources>

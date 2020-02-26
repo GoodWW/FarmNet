@@ -3,42 +3,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/ic_bg_other"
     tools:context=".ui.activity.PWDLoginActivity">
 
     <ImageView
         android:id="@+id/back"
-        android:layout_height="@dimen/back_size"
         android:layout_width="@dimen/back_size"
-        android:src="@drawable/ic_chevron_left_black_24dp"
+        android:layout_height="@dimen/back_size"
         android:padding="25px"
+        android:src="@drawable/ic_chevron_left_black_24dp"
         tools:ignore="PxUsage" />
 
     <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/back"
-        android:layout_marginStart="@dimen/mar_size"
-        android:layout_marginTop="60px"
+        android:layout_marginStart="81px"
+        android:layout_marginTop="258px"
         android:text="@string/str_register_new"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_large_size"
+        android:textColor="#333333"
+        android:textSize="61px"
         android:textStyle="bold"
         tools:ignore="PxUsage" />
 
     <EditText
         android:id="@+id/etAccount"
         android:layout_width="match_parent"
-        android:layout_height="130px"
-        android:layout_below="@+id/tvWelcome"
-        android:layout_marginStart="@dimen/mar_size"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="@dimen/mar_size"
+        android:layout_height="170px"
+        android:layout_marginStart="80px"
+        android:layout_marginTop="463px"
+        android:layout_marginEnd="280px"
         android:background="@null"
         android:hint="@string/str_account"
         android:maxLength="18"
         android:selectAllOnFocus="true"
         android:textColor="@color/black"
+        android:textColorHint="#999999"
         android:textCursorDrawable="@drawable/cursor_size_black"
         tools:ignore="PxUsage" />
 
@@ -53,18 +53,31 @@
     <EditText
         android:id="@+id/etPass"
         android:layout_width="match_parent"
-        android:layout_height="130px"
+        android:layout_height="170px"
         android:layout_below="@+id/etAccount"
-        android:layout_marginStart="@dimen/mar_size"
-        android:layout_marginEnd="@dimen/mar_size"
+        android:layout_marginStart="80px"
+        android:layout_marginEnd="280px"
+        android:background="@null"
         android:hint="@string/str_pwd"
+        android:textColorHint="#999999"
         android:inputType="textPassword"
         android:maxLength="16"
         android:selectAllOnFocus="true"
-        android:background="@null"
-        android:textCursorDrawable="@drawable/cursor_size_black"
         android:textColor="@color/black"
+        android:textCursorDrawable="@drawable/cursor_size_black"
         tools:ignore="PxUsage" />
+
+    <ImageView
+        android:id="@+id/imgEye"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:padding="66px"
+        android:layout_below="@+id/etAccount"
+        android:src="@mipmap/ic_eye_open"
+        tools:ignore="PxUsage" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1px"
@@ -76,18 +89,20 @@
     <EditText
         android:id="@+id/etPassTwo"
         android:layout_width="match_parent"
-        android:layout_height="130px"
+        android:layout_height="170px"
         android:layout_below="@+id/etPass"
-        android:layout_marginStart="@dimen/mar_size"
-        android:layout_marginEnd="@dimen/mar_size"
+        android:layout_marginStart="80px"
+        android:layout_marginEnd="280px"
+        android:background="@null"
         android:hint="@string/str_pwd_again"
         android:inputType="textPassword"
+        android:textColorHint="#999999"
         android:maxLength="16"
         android:selectAllOnFocus="true"
-        android:background="@null"
-        android:textCursorDrawable="@drawable/cursor_size_black"
         android:textColor="@color/black"
+        android:textCursorDrawable="@drawable/cursor_size_black"
         tools:ignore="PxUsage" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1px"
@@ -99,11 +114,10 @@
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
-        android:layout_height="109px"
-        android:layout_below="@id/etPassTwo"
-        android:layout_marginStart="@dimen/mar_size"
-        android:layout_marginTop="@dimen/margin_top_size_btn"
-        android:layout_marginEnd="@dimen/mar_size"
+        android:layout_height="131px"
+        android:layout_marginStart="50px"
+        android:layout_marginTop="1054px"
+        android:layout_marginEnd="50px"
         android:background="@drawable/login_click_effect_in"
         android:text="@string/str_register"
         android:textColor="@color/white"

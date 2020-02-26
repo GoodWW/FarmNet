@@ -10,7 +10,6 @@ import com.cdzp.farmnet.base.BaseViewModel;
  */
 public class RegisterModel extends BaseViewModel<RegisterPresenter, RegisterContract.Model> {
 
-
     public RegisterModel(RegisterPresenter registerPresenter) {
         super(registerPresenter);
     }
@@ -18,10 +17,6 @@ public class RegisterModel extends BaseViewModel<RegisterPresenter, RegisterCont
     @Override
     public RegisterContract.Model getContract() {
         return new RegisterContract.Model() {
-            @Override
-            public void excuteRegister(String account, String pwd) throws Exception {
-
-            }
         };
     }
 }

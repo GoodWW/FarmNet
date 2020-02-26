@@ -1,6 +1,6 @@
 package com.cdzp.farmnet.contract.register;
 
-import com.cdzp.farmnet.bean.BaseEntity;
+import com.cdzp.farmnet.bean.UserInfo;
 
 /**
  * 作者：张人文
@@ -10,16 +10,15 @@ import com.cdzp.farmnet.bean.BaseEntity;
  */
 public interface RegisterContract {
     interface Model {
-        void excuteRegister(String account, String pwd) throws Exception;
     }
 
-    interface View<T extends BaseEntity> {
-        void handlerRegisterResult(T t);
+    interface View {
+        void handlerRegisterResult(UserInfo t,int code);
     }
 
-    interface Presenter<T extends BaseEntity> {
+    interface Presenter {
         void requestRegister(String account, String pwd);
 
-        void responseRegisterResult(T t);
+        void responseRegisterResult(UserInfo t,int code);
     }
 }

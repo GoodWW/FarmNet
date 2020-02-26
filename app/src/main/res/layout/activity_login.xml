@@ -4,8 +4,8 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/ic_bg"
     tools:context=".ui.activity.LoginActivity">
-    <!--    android:background="@drawable/login_back"-->
 
     <RelativeLayout
         android:id="@+id/rlTop"

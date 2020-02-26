@@ -29,7 +29,7 @@
     <color name="red_pressed">#FF6666</color>
     <color name="purple_normal">#9932CC</color>
     <color name="purple_pressed">#9F79EE</color>
-    <color name="line_bg">#595757</color>
+    <color name="line_bg">#D6D7DC</color>
     <color name="background_tab_pressed">#6633B5E5</color>
     <color name="regis_account_exist">#222222</color>
     <color name="new_redbg">#FFFF5B62</color>

@@ -1,5 +1,7 @@
 package com.cdzp.farmnet.ui.activity;
 
+import android.text.InputType;
+import android.text.method.DigitsKeyListener;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -29,10 +31,10 @@ public class PWDLoginActivity extends BaseView<PWDLoginPresenter, PWDLoginContra
 
     @InjectView(R.id.etPhone)
     private EditText etPhone;
-
     @InjectView(R.id.etPass)
     private EditText etPass;
     private QMUITipDialog tipDialog;
+    private char[] ac = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
     @Override
     public PWDLoginContract.View getContract() {
@@ -76,6 +78,17 @@ public class PWDLoginActivity extends BaseView<PWDLoginPresenter, PWDLoginContra
                 .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
                 .setTipWord("请稍后...")
                 .create(false);
+        etPhone.setKeyListener(new DigitsKeyListener() {
+            @Override
+            public int getInputType() {
+                return InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL;
+            }
+
+            @Override
+            protected char[] getAcceptedChars() {
+                return ac;
+            }
+        });
     }
 
     @Override

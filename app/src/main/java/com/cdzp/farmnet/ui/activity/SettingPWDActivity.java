@@ -122,6 +122,8 @@ public class SettingPWDActivity extends BaseView<SetPWDPresenter, SetPWDContract
                     etPassTwo.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     flag = true;
                 }
+                etPass.setSelection(etPass.getText().length());
+                etPassTwo.setSelection(etPassTwo.getText().length());
                 break;
         }
     }
