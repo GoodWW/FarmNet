@@ -1,6 +1,6 @@
 package com.cdzp.farmnet.contract.setpwd;
 
-import com.cdzp.farmnet.bean.BaseEntity;
+import com.cdzp.farmnet.bean.UserInfo;
 
 /**
  * 作者：张人文
@@ -10,16 +10,15 @@ import com.cdzp.farmnet.bean.BaseEntity;
  */
 public interface SetPWDContract {
     interface Model {
-        void excuteSetPWD(String account, String pwd) throws Exception;
     }
 
-    interface View<T extends BaseEntity> {
-        void handlerResult(T t);
+    interface View{
+        void handlerResult(UserInfo t,int code);
     }
 
-    interface Presenter<T extends BaseEntity> {
-        void requestSetPWD(String account, String pwd);
+    interface Presenter {
+        void requestSetPWD(String authCode, String password,String phone);
 
-        void responseResult(T t);
+        void responseResult(UserInfo t,int code);
     }
 }

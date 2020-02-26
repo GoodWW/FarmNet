@@ -13,6 +13,7 @@ import com.cdzp.farmnet.bean.UserInfo;
 import com.cdzp.farmnet.contract.authentication.AuthenticationContract;
 import com.cdzp.farmnet.contract.authentication.AuthenticationPresenter;
 import com.cdzp.farmnet.utils.CountDownTimerUtils;
+import com.cdzp.farmnet.utils.Date;
 import com.cmonbaby.ioc.core.annotation.ContentView;
 import com.cmonbaby.ioc.core.annotation.InjectView;
 import com.cmonbaby.ioc.core.annotation.OnClick;
@@ -38,19 +39,20 @@ public class AuthenticationActivity extends BaseView<AuthenticationPresenter, Au
     private TextView etCode;
     private CountDownTimerUtils mCountDownTimerUtils; //倒计时1分钟
     private QMUITipDialog tipDialog;
+    private String strPhone;
 
     @Override
     public AuthenticationContract.View getContract() {
         return new AuthenticationContract.View() {
             @Override
-            public void handlerResult(UserInfo t, int responseCode) {
+            public void handlerResult(UserInfo userInfo, int responseCode) {
                 Log.e(TAG, "handlerResult:   " + responseCode);
                 tipDialog.dismiss();
                 if (200 == responseCode) {
                     action();
                     Toasty.success(AuthenticationActivity.this, getResources().getString(R.string.str_long03), Toast.LENGTH_SHORT, true).show();
                 } else if (1010 == responseCode) {
-                    Toasty.success(AuthenticationActivity.this, getResources().getString(R.string.str_long03), Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(AuthenticationActivity.this, getString(R.string.str_long17), Toast.LENGTH_SHORT, true).show();
                 } else if (responseCode == 1011) {
                     Toasty.error(AuthenticationActivity.this, getResources().getString(R.string.str_long01), Toast.LENGTH_SHORT, true).show();
                 } else if (responseCode == 1012) {
@@ -67,10 +69,13 @@ public class AuthenticationActivity extends BaseView<AuthenticationPresenter, Au
             }
 
             @Override
-            public void handlerJudgeCodeResult(UserInfo t, int responseCode) {
+            public void handlerJudgeCodeResult(UserInfo userInfo, int responseCode) {
                 Log.e(TAG, "handlerJudgeCodeResult:   " + responseCode);
+
                 tipDialog.dismiss();
                 if (200 == responseCode) {
+                    Date.userInfo = userInfo;
+                    Date.userInfo.setPhone(strPhone);
                     startActivity(SettingPWDActivity.class);
                 } else if (1010 == responseCode) {
                     Toasty.success(AuthenticationActivity.this, getResources().getString(R.string.str_long03), Toast.LENGTH_SHORT, true).show();
@@ -103,16 +108,17 @@ public class AuthenticationActivity extends BaseView<AuthenticationPresenter, Au
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String strResult = getString(R.string.hint_one) + "<font color='#EC7147'>" + addSpace(getIntent()
-                .getStringExtra("phone")) + "</font>";
+        strPhone = getIntent().getStringExtra("phone");
+        String strResult = getString(R.string.hint_one) + "<font color='#EC7147'>" + addSpace(strPhone) + "</font>";
         tvPhone.setText(Html.fromHtml(strResult));
+
         if (null == tipDialog) {
             tipDialog = new QMUITipDialog.Builder(AuthenticationActivity.this)
                     .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
                     .setTipWord(getString(R.string.str_long11))
                     .create(false);
         }
-        p.getContract().requestCode(getIntent().getStringExtra("phone"));
+        p.getContract().requestCode(strPhone);
         tipDialog.show();
     }
 
@@ -126,15 +132,15 @@ public class AuthenticationActivity extends BaseView<AuthenticationPresenter, Au
         switch (view.getId()) {
             case R.id.btnRegister:
                 if (!"".equals(etCode.getText().toString()) && etCode.getText().toString().length() == 6) {
-                    p.getContract().judgeCode(etCode.getText().toString(), getIntent().getStringExtra("phone"));
+                    p.getContract().judgeCode(etCode.getText().toString(), strPhone);
                     tipDialog.show();
                 } else {
                     Toasty.error(AuthenticationActivity.this, getString(R.string.str_long10), Toast.LENGTH_SHORT, true).show();
                 }
                 break;
             case R.id.tvTime:
-                if (11 == getIntent().getStringExtra("phone").length()) {
-                    p.getContract().requestCode(getIntent().getStringExtra("phone"));
+                if (11 == strPhone.length()) {
+                    p.getContract().requestCode(strPhone);
                     tipDialog.show();
                 }
                 break;

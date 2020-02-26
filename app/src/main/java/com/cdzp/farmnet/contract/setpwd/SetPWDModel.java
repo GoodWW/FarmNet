@@ -18,10 +18,7 @@ public class SetPWDModel extends BaseViewModel<SetPWDPresenter, SetPWDContract.M
     @Override
     public SetPWDContract.Model getContract() {
         return new SetPWDContract.Model() {
-            @Override
-            public void excuteSetPWD(String account, String pwd) throws Exception {
 
-            }
         };
     }
 }

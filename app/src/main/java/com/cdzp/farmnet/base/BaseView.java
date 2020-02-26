@@ -47,6 +47,7 @@ public abstract class BaseView<P extends BaseViewPresenter, CONTRACT> extends Au
     //如果 Presenter 层出现了异常，就需要告知 View 层
     public void error(Exception e) {
     }
+
     private void setStatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (isUseFullScreenMode()) {
@@ -60,6 +61,7 @@ public abstract class BaseView<P extends BaseViewPresenter, CONTRACT> extends Au
             }
         }
     }
+
     /**
      * 是否设置成透明状态栏，即就是全屏模式
      */

@@ -86,5 +86,13 @@
     <string name="str_long12">密码不能为空</string>
     <string name="str_long13">用户名不能为空</string>
     <string name="str_long14">请输入正确的手机号</string>
+    <string name="str_set_pwd_two">重置密码</string>
+    <string name="str_long15">请再次确认密码</string>
+    <string name="str_long16">请重置登录密码</string>
+    <string name="str_long17">账号不存在</string>
+    <string name="str_long18">请输入登录密码</string>
+    <string name="str_long19">请确认登录密码</string>
+    <string name="str_long20">两次密码输入不一致</string>
+    <string name="str_long21">密码重置成功，请重新登录</string>
 
 </resources>

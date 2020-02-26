@@ -13,32 +13,32 @@
         android:padding="25px"
         tools:ignore="PxUsage" />
 
+
     <TextView
         android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/back"
-        android:layout_marginStart="@dimen/mar_size"
-        android:layout_marginTop="60px"
-        android:text="@string/str_set_pwd"
-        android:textColor="@color/black"
-        android:textSize="@dimen/text_large_size"
+        android:layout_marginStart="81px"
+        android:layout_marginTop="258px"
+        android:text="@string/str_set_pwd_two"
+        android:textColor="#333333"
+        android:textSize="61px"
         android:textStyle="bold"
         tools:ignore="PxUsage" />
-
 
     <EditText
         android:id="@+id/etPass"
         android:layout_width="match_parent"
-        android:layout_height="130px"
-        android:layout_below="@+id/tvWelcome"
-        android:layout_marginTop="330px"
-        android:layout_marginStart="@dimen/mar_size"
+        android:layout_height="170px"
+        android:layout_marginTop="463px"
+        android:layout_marginStart="88px"
         android:layout_marginEnd="@dimen/mar_size"
         android:background="@null"
-        android:hint="@string/str_set_login_pwd"
+        android:hint="@string/str_long16"
+        android:textColorHint="#999999"
         android:inputType="textPassword"
         android:maxLength="16"
+        android:textSize="46px"
         android:selectAllOnFocus="true"
         android:textColor="@color/black"
         android:layout_toStartOf="@+id/imgEye"
@@ -49,13 +49,11 @@
         android:id="@+id/imgEye"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvWelcome"
-        android:layout_marginTop="330px"
-        android:layout_marginEnd="@dimen/mar_size"
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:padding="48px"
-        android:src="@drawable/ic_eye_open"
+        android:layout_marginTop="463px"
+        android:layout_marginEnd="15dp"
+        android:padding="66px"
+        android:src="@mipmap/ic_eye_open"
         tools:ignore="PxUsage" />
 
     <TextView
@@ -65,15 +63,38 @@
         android:layout_marginStart="@dimen/mar_size"
         android:layout_marginEnd="@dimen/mar_size"
         android:background="@color/line_bg" />
+    <EditText
+        android:id="@+id/etPassTwo"
+        android:layout_width="match_parent"
+        android:layout_height="170px"
+        android:layout_below="@+id/etPass"
+        android:layout_marginStart="88px"
+        android:layout_marginEnd="88px"
+        android:hint="@string/str_long15"
+        android:inputType="textPassword"
+        android:maxLength="16"
+        android:textColorHint="#999999"
+        android:selectAllOnFocus="true"
+        android:background="@null"
+        android:textSize="46px"
+        android:textCursorDrawable="@drawable/cursor_size_black"
+        android:textColor="@color/black"
+        tools:ignore="PxUsage" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/etPassTwo"
+        android:layout_marginStart="@dimen/mar_size"
+        android:layout_marginEnd="@dimen/mar_size"
+        android:background="#D6D7DC" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
-        android:layout_height="109px"
-        android:layout_below="@id/etPass"
-        android:layout_marginStart="@dimen/mar_size"
-        android:layout_marginTop="@dimen/margin_top_size_btn"
-        android:layout_marginEnd="@dimen/mar_size"
+        android:layout_height="131px"
+        android:layout_marginStart="50px"
+        android:layout_marginTop="887px"
+        android:layout_marginEnd="50px"
         android:background="@drawable/login_click_effect_in"
         android:text="@string/str_reset_pwd"
         android:textColor="@color/white"

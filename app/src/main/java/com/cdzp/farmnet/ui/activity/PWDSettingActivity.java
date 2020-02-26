@@ -65,11 +65,11 @@ public class PWDSettingActivity extends BaseView<PWDSettingPresenter, PWDSetting
         switch (view.getId()) {
             case R.id.imgEye:
                 if (flag) {
-                    imgEye.setImageResource(R.drawable.ic_eye_open);
+                    imgEye.setImageResource(R.mipmap.ic_eye_open);
                     etPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                     flag = false;
                 } else {
-                    imgEye.setImageResource(R.drawable.ic_eye_close);
+                    imgEye.setImageResource(R.mipmap.ic_eye_close);
                     etPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     flag = true;
                 }

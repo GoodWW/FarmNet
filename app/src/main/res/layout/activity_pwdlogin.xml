@@ -20,7 +20,7 @@
         android:layout_marginStart="81px"
         android:layout_marginTop="258px"
         android:text="@string/str_pwd_login"
-        android:textColor="@color/black"
+        android:textColor="#333333"
         android:textSize="61px"
         android:textStyle="bold"
         tools:ignore="PxUsage" />
@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="170px"
         android:layout_marginStart="88px"
-        android:layout_marginEnd="@dimen/mar_size"
+        android:layout_marginEnd="88px"
         android:layout_marginTop="463px"
         android:hint="@string/str_user_name"
         android:textColorHint="#999999"
@@ -55,14 +55,16 @@
         android:layout_height="170px"
         android:layout_below="@+id/etPhone"
         android:layout_marginStart="88px"
-        android:layout_marginEnd="@dimen/mar_size"
+        android:layout_marginEnd="88px"
         android:hint="@string/str_pwd"
         android:inputType="textPassword"
         android:maxLength="16"
+        android:textColorHint="#999999"
         android:selectAllOnFocus="true"
         android:background="@null"
         android:textCursorDrawable="@drawable/cursor_size_black"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        tools:ignore="PxUsage" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1px"
