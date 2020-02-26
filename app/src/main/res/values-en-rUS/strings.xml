@@ -18,7 +18,7 @@
     <string name="str_forget_pwd">忘记密码？</string>
     <string name="str_register_account">注册新账号</string>
     <string name="str_set_pwd">设置密码</string>
-    <string name="str_hint_two">首次使用请设置密码，至少6位，包含数字与字母</string>
+    <string name="str_hint_two">首次使用请设置密码，至少6位，包含数字和字母</string>
     <string name="str_set_login_pwd">请设置登录密码</string>
     <string name="str_register">注册</string>
     <string name="str_hint_three">点击“注册”，表示已阅读并同意以下协议</string>
@@ -97,5 +97,6 @@
     <string name="str_long21">密码重置成功，请重新登录</string>
     <string name="str_long22">首字母必须为英文字母</string>
     <string name="str_long23">账号注册成功，请进行登录</string>
+    <string name="str_long24">密码设置成功，已为您直接登录</string>
 
 </resources>

@@ -8,12 +8,10 @@ package com.cdzp.farmnet.contract.pwdsetting;
  */
 public interface PWDSettingContract {
     interface Model {
-//        void excuteLogin(String name, String code) throws Exception;
     }
 
     interface View {
         void handlerSettingPWDResult(int code);
-//        void handlerLoginOrRegisterResult(UserInfo userInfo, int flag);
     }
 
     interface Presenter {

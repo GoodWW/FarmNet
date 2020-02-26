@@ -79,7 +79,6 @@ public class SettingPWDActivity extends BaseView<SetPWDPresenter, SetPWDContract
                     .setTipWord(getString(R.string.str_long11))
                     .create(false);
         }
-
     }
 
     @Override

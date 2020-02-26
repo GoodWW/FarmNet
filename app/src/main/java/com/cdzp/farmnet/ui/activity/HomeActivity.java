@@ -5,10 +5,12 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.cdzp.farmnet.R;
+import com.cdzp.farmnet.base.BaseView;
+import com.cdzp.farmnet.contract.homeactivity.HomeActivityContract;
+import com.cdzp.farmnet.contract.homeactivity.HomeActivityPresenter;
 import com.cdzp.farmnet.ui.fragment.HomeFragment;
 import com.cdzp.farmnet.ui.fragment.MyFragment;
 import com.cdzp.farmnet.utils.MyViewPager;
@@ -22,7 +24,7 @@ import java.util.List;
  * 邮箱：479696877@QQ.COM
  * 描述：导航栏主页
  */
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends BaseView<HomeActivityPresenter, HomeActivityContract.View> {
     /**
      * android 4.4以上沉浸式以及bar的管理
      */
@@ -85,6 +87,17 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setLabelVisibilityMode(1);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    @Override
+    public HomeActivityContract.View getContract() {
+        return new HomeActivityContract.View() {
+        };
+    }
+
+    @Override
+    public HomeActivityPresenter getPresenter() {
+        return new HomeActivityPresenter();
     }
 
 
