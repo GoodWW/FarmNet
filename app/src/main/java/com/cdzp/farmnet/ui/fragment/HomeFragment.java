@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ import com.cdzp.farmnet.contract.home.HomePresenter;
 import com.cdzp.farmnet.contract.home.HomeRecyclerAdapter;
 import com.cdzp.farmnet.ui.activity.AddFrameActivity;
 import com.cdzp.farmnet.ui.activity.EnvironmentControlActivity;
+import com.cdzp.farmnet.utils.UUtils;
 import com.qmuiteam.qmui.widget.dialog.QMUIBottomSheet;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
@@ -58,7 +60,8 @@ public class HomeFragment extends BaseFragment<HomePresenter, HomeContract.View>
     private TextView tvName;
     private static final int VIEWTYPE_TWO = 1;
     private PopupWindow popupWindow;
-    SwipeRecyclerView rl;
+    private RelativeLayout rlOne;
+    private SwipeRecyclerView rl;
 
 
     @Override
@@ -93,6 +96,12 @@ public class HomeFragment extends BaseFragment<HomePresenter, HomeContract.View>
     @Override
     protected void initView(View mView) {
         mRefreshLayout = mView.findViewById(R.id.refresh_layout);
+        rlOne = mView.findViewById(R.id.rlOne);
+        RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) rlOne.getLayoutParams();
+        if (null != getActivity())
+            lp.setMargins(0, UUtils.getStatusBarHeight(getActivity()), 0, 0);
+        else
+            lp.setMargins(0, 110, 0, 0);
         @SuppressLint("InflateParams")
         View popupView = getLayoutInflater().inflate(R.layout.pop_layout, null);
 

@@ -14,6 +14,8 @@ import com.cdzp.farmnet.contract.homeactivity.HomeActivityPresenter;
 import com.cdzp.farmnet.ui.fragment.HomeFragment;
 import com.cdzp.farmnet.ui.fragment.MyFragment;
 import com.cdzp.farmnet.utils.MyViewPager;
+import com.cdzp.farmnet.utils.StatusBarUtil;
+import com.cmonbaby.ioc.core.annotation.ContentView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,7 @@ import java.util.List;
  * 邮箱：479696877@QQ.COM
  * 描述：导航栏主页
  */
+@ContentView(R.layout.activity_home)
 public class HomeActivity extends BaseView<HomeActivityPresenter, HomeActivityContract.View> {
     /**
      * android 4.4以上沉浸式以及bar的管理
@@ -57,7 +60,7 @@ public class HomeActivity extends BaseView<HomeActivityPresenter, HomeActivityCo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        StatusBarUtil.setRootViewFitsSystemWindows(this,false);
         //bar初始化
 //        mImmersionBar = ImmersionBar.with(this);
 //        mImmersionBar.init();

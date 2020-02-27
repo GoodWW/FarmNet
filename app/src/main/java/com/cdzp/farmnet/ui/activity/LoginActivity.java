@@ -99,11 +99,6 @@ public class LoginActivity extends BaseView<LoginPresenter, LoginContract.View> 
     }
 
     @Override
-    protected int getStatusBarColor() {
-        return R.color.white;
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
         tipDialog = new QMUITipDialog.Builder(LoginActivity.this)
