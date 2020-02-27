@@ -29,7 +29,7 @@ import com.cdzp.farmnet.contract.home.HomePresenter;
 import com.cdzp.farmnet.contract.home.HomeRecyclerAdapter;
 import com.cdzp.farmnet.ui.activity.AddFrameActivity;
 import com.cdzp.farmnet.ui.activity.EnvironmentControlActivity;
-import com.cdzp.farmnet.utils.UUtils;
+import com.cdzp.farmnet.utils.StatusBarUtil;
 import com.qmuiteam.qmui.widget.dialog.QMUIBottomSheet;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
@@ -99,7 +99,7 @@ public class HomeFragment extends BaseFragment<HomePresenter, HomeContract.View>
         rlOne = mView.findViewById(R.id.rlOne);
         RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) rlOne.getLayoutParams();
         if (null != getActivity())
-            lp.setMargins(0, UUtils.getStatusBarHeight(getActivity()), 0, 0);
+            lp.setMargins(0, StatusBarUtil.getStatusBarHeight(getActivity()), 0, 0);
         else
             lp.setMargins(0, 110, 0, 0);
         @SuppressLint("InflateParams")
